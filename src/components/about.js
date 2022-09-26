@@ -1,7 +1,4 @@
 import * as React from "react"
-import ImageNolan from '../images/tn_jeff_01.jpg'
-import ImageTurk from '../images/tn_turk_01.jpg'
-import ImageVan from '../images/tn_van_01.jpg'
 
 const AboutUs = () =>{
 
@@ -21,9 +18,9 @@ const AboutUs = () =>{
 const TripleImages = () =>{
   return(
     <div class="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-x-5 relative px-5 gap-y-5">
-      <TripleImage  image={ImageNolan} alt="TN Home Improvement Contractor Jeff in action" />
-      <TripleImage  image={ImageTurk} alt="TN Home Imrpovement Contractor Mike in action" />
-      <TripleImage  image={ImageVan} alt="TN Home Improvement Van parked in driveway" />
+      <TripleImage  image={'/tn_jeff_01.jpg'} alt="TN Home Improvement Contractor Jeff in action" />
+      <TripleImage  image={'/tn_turk_01.jpg'} alt="TN Home Imrpovement Contractor Mike in action" />
+      <TripleImage  image={ '/tn_van_01.jpg'} alt="TN Home Improvement Van parked in driveway" />
       <div id="services" class="bg-stone-600 absolute w-full h-1/2 -z-10 bottom-0"></div>
     </div>
   )

@@ -1,10 +1,9 @@
 import * as React from "react"
-import Image from '../images/tn_company01.jpg'
 
 const Hero = () =>{
   return(
     <div class="heroContainer">
-        <img class="heroContainer__image object-right" src={ Image } alt="TN Home Improvements Banner Image" />
+        <img class="heroContainer__image object-right" src={ '/tn_company01.jpg' } alt="TN Home Improvements Banner Image" />
       <div class="flex flex-col items-start justify-center text-white  h-full w-full from-slate-900/95 to-slate-800/30 md:to-zinc-50/5 z-10 bg-gradient-to-t md:bg-gradient-to-r">
         <div class="pl-5 pr-5 md:pr-0 md:pl-8 flex items-center md:items-start flex-col">
           <h1 class=" text-5xl lg:text-8xl font-display font-bold text-center md:text-left">TN<br/>Home Improvements</h1>
