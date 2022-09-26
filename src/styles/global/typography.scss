@@ -1,0 +1,12 @@
+h1{
+  font-size: 4rem;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  @apply font-display;
+}
+
+body, p{
+  @apply font-body;
+}

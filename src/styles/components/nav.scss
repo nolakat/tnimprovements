@@ -1,0 +1,83 @@
+.navContainer{
+  padding: 8px 20px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navWrapper{
+  box-shadow: 0 1px 13px -1px black;
+}
+
+.menuContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+.menuContainer li{
+  padding-right: 48px;
+  &:last-child{
+    padding-right: 0px;
+  }
+}
+
+.menuContainer__link{
+  @apply text-lg font-normal;
+}
+
+body {
+  height: 100vh;
+    display: grid;
+    place-items: center;
+    background: white;
+}
+.wrap {
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+.burger {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+}
+.burger.active {
+    background: rgb(56 56 56);
+}
+.burger-strip {
+    transition: all .5s ease;
+}
+.strip div {
+    height: 3px;
+    border-radius: 2px;
+    background: rgb(56 56 56);
+    margin: 10px;
+    transition: all .55s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 40px;
+}
+.burger.active .strip div {
+    background: white;
+}
+
+.burger.active .burger-strip-2 div:first-child {
+    transform: translateY(13px) rotate(45deg);
+}
+.burger.active .burger-strip-2 div:nth-child(2) {
+    opacity: 0;
+}
+.burger.active .burger-strip-2 div:last-child {
+    transform: translateY(-13px) rotate(-45deg);
+}
+
+
+
+html, body {
+  scroll-behavior: smooth
+}

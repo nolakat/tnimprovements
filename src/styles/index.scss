@@ -1,0 +1,40 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+@import './global/breakpoints.scss';
+@import './global/typography.scss';
+@import './tools/media-queries.scss';
+@import './components/hero.scss';
+@import './components/nav.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  margin:0;
+  padding: 0;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+ul{
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+input{
+  border: 1px solid black;
+  padding: 12px 8px;
+}
+
+textarea{
+  border: 1px solid black;
+  min-height: 350px;
+  padding: 12px 8px;
+}
+
+code{
+  color: red;
+}
