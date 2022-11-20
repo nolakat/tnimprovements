@@ -1,7 +1,14 @@
 import * as React from "react"
-import NavBar from '../components/nav.js'
-import HomePage from "./home.js"
+import NavBar from '../components/nav'
+import Footer from "../components/footer"
+
+import HomePage from "./home"
 import styles from '../styles/index.scss'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar,  } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar)
 
 // data
 const links = [
@@ -53,12 +60,13 @@ const links = [
 // markup
 const IndexPage = () => {
   return (
-    <div class="scroll-smooth">
+    <div className="scroll-smooth">
       <NavBar />
       <main>
         <title>Home Page</title>
         <HomePage />
       </main>
+      <Footer />
     </div>
   )
 }

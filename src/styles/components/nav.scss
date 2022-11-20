@@ -3,11 +3,12 @@
 }
 
 .navContainer{
-  padding: 8px 20px;
+  padding: 8px 60px;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
+  max-width: 1600px;
 }
 
 .navWrapper{
@@ -28,7 +29,7 @@
 }
 
 .menuContainer__link{
-  @apply text-lg font-normal;
+  @apply text-xl font-bold;
 }
 
 body {
