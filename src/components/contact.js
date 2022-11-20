@@ -8,10 +8,8 @@ export const contact = () =>{
   return (
     <section id="contact" className="px-5 py-32 ">
       <div className="m-auto text-center">
-        <h3 className="pb-4 text-4xl max-w-prose">Contact Us</h3>
-        {/* <p className="text-lg max-w-prose">{ dummy_text }</p> */}
-
-        <div className="flex flex-col items-center pt-6 gap-y-3">
+        <h3 className="pb-4 text-4xl">Contact Us</h3>
+        <div className="flex flex-col items-center justify-center pt-6 text-center gap-y-3">
           <a className="text-4xl font-semibold hover:underline" href="emailto:jeff@tnimprovements.com" >jeff@tnimprovements.com</a>
           <div className="flex flex-row pt-2">
               <a href="tel:412-508-5078" className="text-2xl font-semibold text-black">(412) 508-5078</a>

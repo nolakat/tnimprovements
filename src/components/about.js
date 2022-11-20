@@ -17,7 +17,7 @@ const AboutUs = () =>{
 
 
   return (
-    <section className="flex flex-col items-center justify-center pt-20 text-center">
+    <section id="about" className="flex flex-col items-center justify-center pt-20 text-center">
       <h2 className="px-5 mb-4 text-5xl font-normal">20+ Years of Experience</h2>
       <p className="max-w-4xl px-5 pt-4 text-2xl leading-relaxed">T&N Home Improvements is made of two hard-working and motivated men with over 20 years experience combined in the construction industry. We offer Property Maintenance, Small Remodel Jobs, and Handyman Services in the city of Pittsburgh and surrounding areas.</p>
       <h3 className="pt-20 pb-8 text-4xl font-semibold">Our Values</h3>
