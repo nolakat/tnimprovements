@@ -61,17 +61,17 @@ const slideList = data.map((quote, index) =>
 
   return(
     <section id="gallery" className="pb-20 ">
-      <div>
+      <div class="hidden md:block">
         {slideList}
       </div>
-      {/* <div className="flex flex-row">
-       <button
+      <div className="block w-screen md:hidden">
+       {/* <button
           className="flex items-center justify-center w-1/4"
           onClick={()=>{ Prev(currentIndex, setIndex)}}
           type="button"
         >
           <FontAwesomeIcon className="w-6" icon="chevron-left" />
-        </button>
+        </button> */}
       <div>
          <Carousel
           selectedItem={currentIndex}
@@ -85,14 +85,14 @@ const slideList = data.map((quote, index) =>
             { slideList }
           </Carousel>
       </div>
-      <button
+      {/* <button
           className="flex items-center justify-center w-1/4"
           onClick={()=>{ Next(currentIndex, setIndex)}}
           type="button"
         >
           <FontAwesomeIcon className="w-6" icon="chevron-right" />
-        </button>
-        </div> */}
+        </button> */}
+        </div>
     </section>
   )
 }

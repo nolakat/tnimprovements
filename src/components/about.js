@@ -7,7 +7,7 @@ const AboutBlock = (props) =>{
   return (
     <li className="flex flex-col items-center justify-center px-4 py-8 gap-y-3">
        <FontAwesomeIcon className="h-12" icon={props.icon} />
-       <h5 className="capitalize">{ props.title }</h5>
+       <h5 className="capitalize text-md">{ props.title }</h5>
     </li>
   )
 }
@@ -18,9 +18,9 @@ const AboutUs = () =>{
 
   return (
     <section id="about" className="flex flex-col items-center justify-center pt-20 text-center">
-      <h2 className="px-5 mb-4 text-5xl font-normal">20+ Years of Experience</h2>
-      <p className="max-w-4xl px-5 pt-4 text-2xl leading-relaxed">T&N Home Improvements is made of two hard-working and motivated men with over 20 years experience combined in the construction industry. We offer Property Maintenance, Small Remodel Jobs, and Handyman Services in the city of Pittsburgh and surrounding areas.</p>
-      <h3 className="pt-20 pb-8 text-4xl font-semibold">Our Values</h3>
+      <h2 className="px-5 mb-4 text-3xl font-normal md:text-5xl">20+ Years of Experience</h2>
+      <p className="max-w-4xl px-5 pt-4 text-lg leading-relaxed md:text-2xl">T&N Home Improvements is made of two hard-working and motivated men with over 20 years experience combined in the construction industry. We offer Property Maintenance, Small Remodel Jobs, and Handyman Services in the city of Pittsburgh and surrounding areas.</p>
+      <h3 className="pt-20 pb-8 text-3xl font-semibold md:text-4xl">Our Values</h3>
       <ul className="grid grid-cols-2 text-lg font-light md:grid-cols-3 gap-y-6 gap-x-6">
         <AboutBlock icon="clock" title="On time arrivals" />
         <AboutBlock icon="ranking-star" title="The job done right the first time" />

@@ -10,7 +10,7 @@ export const contact = () =>{
       <div className="m-auto text-center">
         <h3 className="pb-4 text-4xl">Contact Us</h3>
         <div className="flex flex-col items-center justify-center pt-6 text-center gap-y-3">
-          <a className="text-4xl font-semibold hover:underline" href="emailto:jeff@tnimprovements.com" >jeff@tnimprovements.com</a>
+          <a className="text-2xl font-semibold md:text-4xl hover:underline" href="emailto:jeff@tnimprovements.com" >jeff@tnimprovements.com</a>
           <div className="flex flex-row pt-2">
               <a href="tel:412-508-5078" className="text-2xl font-semibold text-black">(412) 508-5078</a>
           </div>

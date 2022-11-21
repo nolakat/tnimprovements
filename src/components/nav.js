@@ -16,12 +16,12 @@ const MainMenu = () =>{
 }
 
 
-const MobileMenu = () =>{
+const MobileMenu = ({ handleClick }) =>{
   return(
     <ul className="flex flex-col items-center h-full p-10 gap-y-10">
-      <li><a className="menuContainer__link" href="#about">Services</a></li>
-      <li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
-      <li><a className="menuContainer__link" href="#contact">Contact</a></li>
+      <li><a className="menuContainer__link" href="#about" onClick={handleClick}>Services</a></li>
+      <li><a className="menuContainer__link" href="#gallery" onClick={handleClick}>Testimonials</a></li>
+      <li><a className="menuContainer__link" href="#contact" onClick={handleClick}>Contact</a></li>
     </ul>
   )
 }
@@ -68,12 +68,12 @@ const NavBar = () =>{
             <img src={Logo} className="h-full" />
             <h5 class="hidden md:block">Home Improvements</h5>
           </div>
-          <MainMenu />
-          {/* <MobileTrigger active={active} handleClick={handleClick}  /> */}
+          {/* <MainMenu /> */}
+          <MobileTrigger active={active} handleClick={handleClick}  />
         </div>
         <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
           <div class={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
-            <MobileMenu />
+            <MobileMenu handleClick={handleClick}  />
           </div>
         </div>
       </div>
