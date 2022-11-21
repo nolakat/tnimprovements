@@ -5,7 +5,7 @@ import Icon from '../icons/phone.svg'
 
 const MainMenu = () =>{
   return(
-    <ul className="hidden shadow-2xl menuContainer md:flex">
+    <ul className="flex shadow-2xl menuContainer">
       <li><a className="menuContainer__link scroll-smooth" href="#about">Services</a></li>
       <li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
       <li><a className="menuContainer__link" href="#contact">Contact</a></li>
@@ -19,7 +19,7 @@ const MobileMenu = () =>{
     <ul className="flex flex-col items-center h-full p-10 gap-y-10">
       <li><a className="menuContainer__link" href="#about">Services</a></li>
       <li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
-      <li><a className="menuContainer__lin" href="#contact">Contact</a></li>
+      <li><a className="menuContainer__link" href="#contact">Contact</a></li>
     </ul>
   )
 }
@@ -66,7 +66,7 @@ const NavBar = () =>{
           <h5 class="hidden md:block">Home Improvements</h5>
         </div>
         <MainMenu />
-        <MobileTrigger active={active} handleClick={handleClick}  />
+        {/* <MobileTrigger active={active} handleClick={handleClick}  /> */}
       </div>
       <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
         <div class={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
