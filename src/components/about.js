@@ -39,7 +39,7 @@ const AboutUs = () =>{
           <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
           <StaticImage
             loading="lazy"
-            src="../images/tn_jeff_01.jpg"
+            src="../images/tn_jeff-new_01.jpg"
             alt='TN Home Improvement Contractor Jeff in action'
             placeholder="blurred"
             className="z-10 object-cover w-full h-full"
@@ -59,8 +59,8 @@ const AboutUs = () =>{
             placeholder="blurred"
             className="z-10 object-cover w-full h-full"
             fit="cover"
-            width={800}
-            height={600}
+            width={1600}
+            height={1200}
           />
        </div>
 

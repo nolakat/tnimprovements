@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MainMenu = () =>{
   return(
-    <ul className="flex shadow-2xl menuContainer">
+    <ul className="hidden shadow-2xl md:flex menuContainer">
       <li><a className="menuContainer__link scroll-smooth" href="#about">Services</a></li>
       <li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
       <li><a className="menuContainer__link" href="#contact">Contact</a></li>
@@ -68,7 +68,7 @@ const NavBar = () =>{
             <img src={Logo} className="h-full" />
             <h5 class="hidden md:block">Home Improvements</h5>
           </div>
-          {/* <MainMenu /> */}
+          <MainMenu />
           <MobileTrigger active={active} handleClick={handleClick}  />
         </div>
         <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
