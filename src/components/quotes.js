@@ -42,7 +42,7 @@ const Slide = (props) =>{
       <div className="flex flex-row pb-6 text-lg text-amber-500 gap-x-4">
        { stars }
       </div>
-      <p className="text-2xl leading-relaxed text-black max-w-prose">{ props.text }</p>
+      <p className="text-xl leading-relaxed text-black md:text-2xl max-w-prose">{ props.text }</p>
       <a href={props.link} className="pt-6 text-lg font-semibold underline capitalize" target="_blank">{ props.author }</a>
     </div>
   )
@@ -81,6 +81,7 @@ const slideList = data.map((quote, index) =>
           infiniteLoop={true}
           interval={12000}
           showStatus={false}
+          preventMovementUntilSwipeScrollTolerance={true}
           autoPlay>
             { slideList }
           </Carousel>
