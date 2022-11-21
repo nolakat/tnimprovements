@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import Logo from '../images/tn_logo.svg'
 import Icon from '../icons/phone.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 const MainMenu = () =>{
@@ -59,18 +61,28 @@ const NavBar = () =>{
 
 
   return(
-    <div className="sticky top-0 z-50 h-20 bg-white navWrapper">
-      <div className="h-20 px-6 py-1 m-auto navContainer max-w-screen-3xl md:px-12">
-        <div className="flex flex-row items-start justify-center h-full py-3 text-lg md:flex-col gap-x-1">
-          <img src={Logo} className="h-full" />
-          {/* <h5 class="hidden md:block">Home Improvements</h5> */}
+    <div className="sticky top-0 z-50 navWrapper">
+      <div className="h-20 bg-white">
+        <div className="h-20 px-6 py-1 m-auto navContainer max-w-screen-3xl md:px-12">
+          <div className="flex flex-row items-end justify-center h-full py-3 text-lg gap-x-1">
+            <img src={Logo} className="h-full" />
+            <h5 class="hidden md:block">Home Improvements</h5>
+          </div>
+          <MainMenu />
+          {/* <MobileTrigger active={active} handleClick={handleClick}  /> */}
         </div>
-        <MainMenu />
-        {/* <MobileTrigger active={active} handleClick={handleClick}  /> */}
+        <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
+          <div class={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
+            <MobileMenu />
+          </div>
+        </div>
       </div>
-      <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
-        <div class={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
-          <MobileMenu />
+      <div class="py-2 bg-slate-800 text-white flex gap-x-6 items-center justify-between lg:justify-end px-6 md:px-12 font-semibold">
+        <div>Call Now: (412) 508-5078</div>
+        <div class="text-xl flex flex-row gap-x-4 lg:gap-x-6">
+          <a href="https://www.facebook.com/profile.php?id=100077605338760" aria-label="go to facebook page"><FontAwesomeIcon icon={['fab', 'facebook']} /></a>
+          <a href="https://www.instagram.com/tn_homeimprovements/" aria-label="go to instagram page"><FontAwesomeIcon icon={['fab', 'instagram']} /></a>
+          <a href="" aria-label="go to instagram page"><FontAwesomeIcon icon={['fab', 'tiktok']} /></a>
         </div>
       </div>
     </div>

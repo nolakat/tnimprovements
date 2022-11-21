@@ -6,9 +6,9 @@ import HomePage from "./home"
 import styles from '../styles/index.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar,  } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar, faComment  } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar)
+library.add(fab, faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar, faComment)
 
 // data
 const links = [

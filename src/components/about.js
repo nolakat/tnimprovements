@@ -27,9 +27,11 @@ const AboutUs = () =>{
         <AboutBlock icon="handshake" title="An honest Opinion" />
         <AboutBlock icon="broom" title="Clean up the mess we made when the job is done" />
         <AboutBlock icon="circle-check" title="Quality work and craftmanship guarantee" />
+        <AboutBlock icon="comment" title="Clear and quick communication" />
+
       </ul>
       <div className="w-full mt-20">
-        <div className="relative grid grid-rows-3 px-5 md:grid-rows-1 md:grid-cols-2 gap-x-5 gap-y-5">
+        <div className="relative grid grid-rows-2 px-5 md:grid-rows-1 md:grid-cols-2 gap-x-5 gap-y-5">
 
 
 
