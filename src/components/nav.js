@@ -60,10 +60,10 @@ const NavBar = () =>{
 
   return(
     <div className="sticky top-0 z-50 h-20 bg-white navWrapper">
-      <div className="h-20 px-6 m-auto navContainer max-w-screen-3xl md:px-12">
+      <div className="h-20 px-6 py-1 m-auto navContainer max-w-screen-3xl md:px-12">
         <div className="flex flex-row items-start justify-center h-full py-3 text-lg md:flex-col gap-x-1">
           <img src={Logo} className="h-full" />
-          <h5 class="hidden md:block">Home Improvements</h5>
+          {/* <h5 class="hidden md:block">Home Improvements</h5> */}
         </div>
         <MainMenu />
         {/* <MobileTrigger active={active} handleClick={handleClick}  /> */}

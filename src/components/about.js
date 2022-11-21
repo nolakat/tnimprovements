@@ -1,6 +1,6 @@
 import * as React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const AboutBlock = (props) =>{
@@ -29,31 +29,73 @@ const AboutUs = () =>{
         <AboutBlock icon="circle-check" title="Quality work and craftmanship guarantee" />
       </ul>
       <div className="w-full mt-20">
-        <TripleImages />
+        <div className="relative grid grid-rows-3 px-5 md:grid-rows-1 md:grid-cols-2 gap-x-5 gap-y-5">
+
+
+
+        <div className="relative h-96">
+          <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
+          <StaticImage
+            loading="lazy"
+            src="../images/tn_jeff_01.jpg"
+            alt='TN Home Improvement Contractor Jeff in action'
+            placeholder="blurred"
+            className="z-10 object-cover w-full h-full"
+            fit="cover"
+            width={1600}
+            height={1200}
+          />
+       </div>
+
+
+       <div className="relative h-96">
+          <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
+          <StaticImage
+            loading="lazy"
+            src='../images/tn_turk_01.jpg'
+            alt='TN Home Improvement Contractor Micheal in action'
+            placeholder="blurred"
+            className="z-10 object-cover w-full h-full"
+            fit="cover"
+            width={800}
+            height={600}
+          />
+       </div>
+
+
+          <div id="services" className="absolute bottom-0 w-full bg-blue-200/20 h-1/2 -z-10"></div>
+
+        </div>
       </div>
     </section>
   )
 }
 
-const TripleImages = () =>{
-  return(
-    <div className="relative grid grid-rows-3 px-5 md:grid-rows-1 md:grid-cols-3 gap-x-5 gap-y-5">
-      <TripleImage  image={'/tn_jeff_01.jpg'} alt="TN Home Improvement Contractor Jeff in action" />
-      <TripleImage  image={'/tn_turk_01.jpg'} alt="TN Home Imrpovement Contractor Mike in action" />
-      <TripleImage  image={ '/tn_van_01.jpg'} alt="TN Home Improvement Van parked in driveway" />
-      <div id="services" className="absolute bottom-0 w-full bg-blue-200/20 h-1/2 -z-10"></div>
-    </div>
-  )
-}
 
-const TripleImage = ( props ) =>{
-  return(
-    <div className="relative h-96">
-      <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
-      <img className="z-10 object-cover w-full h-full" src={props.image} />
-    </div>
-  )
-}
+
+
+// const TripleImage = ( props ) =>{
+
+//   const image = images[props.index].image
+//   console.log('IMAGE', image);
+
+
+//   return(
+//     <div className="relative h-96">
+//       <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
+//       <StaticImage
+//         loading="lazy"
+//         src={ image }
+//         alt={ 'hello' }
+//         placeholder="blurred"
+//         className="z-10 object-cover w-full h-full"
+//         fit="cover"
+//         width={800}
+//         height={600}
+//       />
+//     </div>
+//   )
+// }
 
 
 export default AboutUs
