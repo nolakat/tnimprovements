@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MainMenu = () =>{
   return(
-    <ul className="hidden shadow-2xl md:flex menuContainer">
+    <ul className="hidden md:flex menuContainer">
       <li><a className="menuContainer__link scroll-smooth" href="#about">Services</a></li>
       <li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
       <li><a className="menuContainer__link" href="#contact">Contact</a></li>
