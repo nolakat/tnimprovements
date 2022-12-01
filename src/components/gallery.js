@@ -1,9 +1,11 @@
 import React, { useState } from "react"
-import BeforeAfter from "./beforeAfter"
 import { Carousel } from 'react-responsive-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { StaticImage } from "gatsby-plugin-image"
+
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 const Next = (idx, setIdx) =>{
    setIdx(idx + 1)
@@ -18,10 +20,10 @@ const Gallery = () =>{
   const [currentIndex, setIndex] = useState(0)
 
   return(
-    <section id="gallery" className="bg-stone-600 pb-20">
+    <section id="gallery" className="px-5 pt-10 bg-white lg:pt-20">
       <div className="flex flex-row">
        <button
-          className="flex items-center justify-center w-1/4"
+          className="flex items-center justify-center w-1/3"
           onClick={()=>{ Prev(currentIndex, setIndex)}}
           type="button"
         >
@@ -37,24 +39,87 @@ const Gallery = () =>{
           centerMode={false}
           centerSlidePercentage={75}
           autoPlay>
-                <div>
-                  <img src="/ceiling_before_01.jpg" />
-                </div>
-                <div>
-                  <img src="/ceiling_after_01.jpg" />
-               </div>
+                <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_1809.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_1810.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_1812.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_1813.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_2219.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_2220.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+                    <StaticImage
+                    loading="lazy"
+                    src="../images/IMG_2223.jpg"
+                    alt='TN Home Improvement Contractor Jeff in action'
+                    placeholder="none"
+                    className="z-10 object-cover w-full h-full"
+                    fit="cover"
+                    width={1600}
+                    height={1200}
+                  />
+
           </Carousel>
       </div>
       <button
-          className="flex items-center justify-center w-1/4"
+          className="flex items-center justify-center w-1/3"
           onClick={()=>{ Next(currentIndex, setIndex)}}
           type="button"
         >
           <FontAwesomeIcon className="w-6" icon="chevron-right" />
         </button>
         </div>
-      {/* <BeforeAfter before={'/ceiling_before_01.jpg'} after={'/ceiling_after_01.jpg'} />
-      <BeforeAfter before={'/drywall_before_01.jpg'} after={'/drywall_after_01.jpg'} /> */}
     </section>
   )
 }
