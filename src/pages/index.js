@@ -63,7 +63,7 @@ const IndexPage = () => {
     <div className="scroll-smooth">
       <NavBar />
       <main>
-        <title>Home Page</title>
+        <title>T&N Home Improvements | Local Pittsburgh Contractors for Home Improvements & Repairs </title>
         <HomePage />
       </main>
       <Footer />
