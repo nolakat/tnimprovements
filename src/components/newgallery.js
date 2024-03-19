@@ -46,8 +46,8 @@ const NewGallery = () => {
           </div>
 
             <div className="flex-1 border border-1 border-white/25 ">
-              <div class="m-auto grid">
-                <TabPanel class="py-0 px-0 md:py-10 md:px-28 row-start-1 col-start-1" forceRender={true}>
+              <div class="m-auto grid row-span-1 col-span-1">
+              <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="commercial_before.jpg" rightImage="commercial_after_01.jpg" />
                 </TabPanel>
                 <TabPanel forceRender={true} className="col-start-1 row-start-1" >
@@ -62,6 +62,7 @@ const NewGallery = () => {
                 <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="home_reno_before.jpg" leftImageAlt="Original fireplace before remodel" rightImage="home_reno_after_01.jpg" rightImageAlt="Remodeled home fireplace with shelves and cabinents." />
                 </TabPanel>
+
               </div>
             </div>
           </Tabs>
