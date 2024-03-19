@@ -47,19 +47,19 @@ const NewGallery = () => {
 
             <div className="flex-1 border border-1 border-white/25 ">
               <div class="m-auto grid">
-                <TabPanel class="py-0 px-0 md:py-10 md:px-28" forceRender={true}>
+                <TabPanel class="py-0 px-0 md:py-10 md:px-28 row-start-1 col-start-1" forceRender={true}>
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="commercial_before.jpg" rightImage="commercial_after_01.jpg" />
                 </TabPanel>
-                <TabPanel forceRender={true}>
+                <TabPanel forceRender={true} className="col-start-1 row-start-1" >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="basement_before.jpg" leftImageAlt="Pittsburgh basement before renovation." rightImage="basement_after.jpg" rightImageAlt="Pittsburgh basement after renovation." />
                 </TabPanel>
-                <TabPanel forceRender={true}>
+                <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="ceiling_before_01.jpg" leftImageAlt="Pittsburgh drop-down ceiling before renovation" rightImage="ceiling_after_01.jpg" rightImageAlt="Renovated drop-down ceiling with new tiles." />
                 </TabPanel>
-                <TabPanel forceRender={true}>
+                <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="patio_before_01.jpg" leftImageAlt="Original backyard pre-renovation" rightImage="patio_after_02.jpg" rightImageAlt="Completed Backyard Patio" />
                 </TabPanel>
-                <TabPanel forceRender={true}>
+                <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="home_reno_before.jpg" leftImageAlt="Original fireplace before remodel" rightImage="home_reno_after_01.jpg" rightImageAlt="Remodeled home fireplace with shelves and cabinents." />
                 </TabPanel>
               </div>
