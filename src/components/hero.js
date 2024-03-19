@@ -15,8 +15,8 @@ const Hero = ({ setIsPopupVisible }) =>{
         placeholder="blurred"
         className="!hidden md:!block heroContainer__image"
         imgClassName="object-bottom"
-        width={2400}
-        height={1200}
+        width={4800}
+        height={2400}
       />
 
       <StaticImage
@@ -29,11 +29,6 @@ const Hero = ({ setIsPopupVisible }) =>{
         width={2400}
         height={1200}
       />
-
-
-      {/* <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 md:p-10 md:right-1/5 md:-bottom-20 bg-darkNavy/65">
-          <Badge />
-        </div> */}
 
 
         <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-start justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-20% via-transparent via-80% to-navy to-100% ">
