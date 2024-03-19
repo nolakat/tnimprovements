@@ -64,7 +64,7 @@ const HomeRenovations = () => {
                 src={"../images/home_reno_cover.jpg"}
                 alt="TN Home Improvements Banner Image"
                 placeholder="blurred"
-                className="hidden md:block heroContainer__image "
+                className="!hidden md:!block heroContainer__image "
                 imgClassName="object-middle"
                 width={2400}
                 height={1200}
@@ -75,14 +75,14 @@ const HomeRenovations = () => {
               src={"../images/home_reno_cover.jpg"}
               alt="TN Home Improvements Banner Image"
               placeholder="blurred"
-              className=" md:hidden"
+              className=" md:!hidden"
               imgClassName="object-middle"
               width={2400}
               height={1200}
             />
 
 
-          <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">
+          <div className="!absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">
           </div>
 
           <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-center justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-0%  via-navy/50  to-navy to-100% ">
