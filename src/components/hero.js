@@ -13,7 +13,7 @@ const Hero = ({ setIsPopupVisible }) =>{
         src="../images/tn_company01.jpg"
         alt="TN Home Improvements Banner Image"
         placeholder="blurred"
-        className="!hidden md:block heroContainer__image"
+        className="!hidden md:!block heroContainer__image"
         imgClassName="object-bottom"
         width={2400}
         height={1200}
