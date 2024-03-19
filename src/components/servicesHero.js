@@ -13,10 +13,10 @@ const ServiceHero = ({ setIsPopupVisible }) =>{
         src={"../images/services_hero.jpg"}
         alt="TN Home Improvements Banner Image"
         placeholder="blurred"
-        className="!hidden md:block heroContainer__image"
+        className="!hidden md:!block heroContainer__image"
         imgClassName="object-middle"
-        width={2400}
-        height={1200}
+        width={4800}
+        height={2400}
       />
 
 <StaticImage
