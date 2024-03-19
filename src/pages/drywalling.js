@@ -64,7 +64,7 @@ const Drywalling = () => {
                 src={"../images/drywall_cover_02.jpg"}
                 alt="TN Home Improvements Banner Image"
                 placeholder="blurred"
-                className="hidden md:block heroContainer__image "
+                className="!hidden md:!block heroContainer__image "
                 imgClassName="object-middle"
                 width={2400}
                 height={1200}
@@ -75,7 +75,7 @@ const Drywalling = () => {
               src={"../images/drywall_cover_02.jpg"}
               alt="TN Home Improvements Banner Image"
               placeholder="blurred"
-              className=" md:hidden"
+              className=" md:!hidden"
               imgClassName="object-middle"
               width={2400}
               height={1200}
@@ -116,10 +116,9 @@ const Drywalling = () => {
                 <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"../images/drywalling/drywall_before_01.jpg"}
+                        src={"drywall_before_01.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
-                        className=""
                         imgClassName="object-top"
                         width={2400}
                         height={1200}
@@ -128,12 +127,10 @@ const Drywalling = () => {
                   <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"../images/drywalling/drywall_after_01.jpg"}
+                        src={"drywall_after_01.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
-                        className=""
                         imgClassName="object-top"
-
                       />
                   </div>
           </Carousel>
