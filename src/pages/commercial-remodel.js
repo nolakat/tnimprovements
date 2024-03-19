@@ -10,42 +10,9 @@ import { Carousel } from 'react-responsive-carousel';
 // Carousel styles
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-// Unused functions for navigating slides - consider implementing or removing
-const Next = (idx, setIdx) => {
-  setIdx(idx + 1);
-};
-
-const Prev = (idx, setIdx) => {
-  setIdx(idx - 1);
-};
-
-// Data for slides - consider expanding for dynamic slide content
-const data = [
-  {
-    src: '../images/doors/home_reno_after_01.jpg',
-  },
-];
-
-// Slide component for individual slide rendering
-const Slide = ({ src }) => (
-  <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
-    <StaticImage
-      loading="eager"
-      src={src}
-      alt="TN Home Improvements Banner Image"
-      placeholder="blurred"
-      className=""
-      imgClassName="object-top"
-      width={2400}
-      height={1200}
-    />
-  </div>
-);
 
 // Main component for the CommercialRemodel page
 const CommercialRemodel = () => {
-  const [currentIndex, setIndex] = useState(0);
-  const slideList = data.map((image, index) => <Slide key={index} src={image.src} />);
 
   return (
     <div className="bg-navy">
@@ -98,7 +65,6 @@ const CommercialRemodel = () => {
           <div className="w-3/4 ">
             <Carousel
             key="1"
-                selectedItem={currentIndex}
                 showArrows={false}
                 emulateTouch={true}
                 infiniteLoop={true}
