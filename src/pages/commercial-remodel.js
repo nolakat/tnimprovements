@@ -32,7 +32,7 @@ const CommercialRemodel = () => {
           {/* Placeholder for potentially interactive elements */}
           <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:scale-1"></div>
           {/* Page title section */}
-          <div className="absolute left-0 z-10 hidden w-full h-full px-8 text-white bg-gradient-to-t from-navy via-navy/50 to-navy md:flex md:bg-gradient-to-r md:justify-center md:items-center">
+          <div className="!absolute top-0 left-0 z-10 hidden w-full h-full px-8 text-white bg-gradient-to-t from-navy via-navy/50 to-navy md:flex md:bg-gradient-to-r md:justify-center md:items-center">
             <h1 className="relative pt-20 pr-5 m-auto text-4xl text-center text-white border-b-2 border-gold-100 md:pr-0">
               Commercial Remodeling
             </h1>
