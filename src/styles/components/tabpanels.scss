@@ -1,0 +1,85 @@
+$darkNavy: #050e1b;
+$navy: #1e283b;
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-flow: row;
+
+  &__tab-list {
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    flex-flow:column;
+    border: 1px solid rgb(255 255 255 / 0.25);
+    border-right: none;
+    position: sticky;
+    top: 0;
+
+  }
+
+  &__tab {
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    color: #fff;
+    font-weight:bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 16px 32px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(255 255 255 / 0.25);
+    transition: background .25s ease-in-out;
+
+
+    &--selected {
+      border-color: #f4c263;
+      color: #f4c263;
+      background: rgba($darkNavy, .25);
+
+    }
+
+    &--disabled {
+      color: GrayText;
+      cursor: default;
+    }
+
+    &:hover:not(.react-tabs__tab--selected){
+      background: rgba(#fff, .25);
+      transition: background .25s ease-in-out;
+    }
+
+    &:focus {
+      outline: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        left: -4px;
+        right: -4px;
+        bottom: -5px;
+      }
+    }
+  }
+
+  &__tab-panel {
+    opacity: 0;
+    padding: 40px 120px;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: -1;
+    transition: opacity .25s ease-in-out;
+
+    &--selected {
+      display: block;
+      opacity: 1;
+      z-index: 2;
+      transition: opacity .25s ease-in-out;
+
+
+    }
+  }
+}

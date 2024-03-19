@@ -1,103 +1,46 @@
 import * as React from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaTools, FaRegSquare, FaDoorOpen, FaPaintRoller, FaUmbrellaBeach, FaHammer } from 'react-icons/fa';
+import { MdBuild } from 'react-icons/md';
+
+
 import { StaticImage } from "gatsby-plugin-image"
 
 
 const AboutBlock = (props) =>{
   return (
-    <li className="flex flex-col items-center justify-center px-4 py-8 gap-y-3">
-       <FontAwesomeIcon className="h-12" icon={props.icon} />
-       <h5 className="capitalize text-md">{ props.title }</h5>
+    <li className="flex flex-col items-center flex-1 pb-8 border border-solid justify-top border-1 border-white/25">
+      <div className="relative">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="200" height="174" viewbox="0 0 200 173.20508075688772" className="scale-50">
+            <path fill="#f4c263" d="M0 86.60254037844386L50 0L150 0L200 86.60254037844386L150 173.20508075688772L50 173.20508075688772Z"></path>
+          </svg>
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-navy">
+            {props.icon}
+            {/* < className="h-12" icon={props.icon} color="#050e1b" size="xl" width="40" /> */}
+          </div>
+      </div>
+      <h5 className="pb-3 capitalize border-b-4 text-md border-gold-100">{ props.title }</h5>
     </li>
+
   )
 }
 
 
 const AboutUs = () =>{
 
-
   return (
-    <section id="about" className="flex flex-col items-center justify-center pt-20 text-center">
-      <h2 className="px-5 mb-4 text-3xl font-normal md:text-5xl">20+ Years of Experience</h2>
-      <p className="max-w-4xl px-5 pt-4 text-lg leading-relaxed md:text-2xl">T&N Home Improvements is made of two hard-working and motivated men with over 20 years experience combined in the construction industry. We offer Property Maintenance, Small Remodel Jobs, and Handyman Services in the city of Pittsburgh and surrounding areas.</p>
-      <h3 className="pt-20 pb-8 text-3xl font-semibold md:text-4xl">Our Values</h3>
-      <ul className="grid grid-cols-2 text-lg font-light md:grid-cols-3 gap-y-6 gap-x-6">
-        <AboutBlock icon="clock" title="On time arrivals" />
-        <AboutBlock icon="ranking-star" title="The job done right the first time" />
-        <AboutBlock icon="handshake" title="An honest Opinion" />
-        <AboutBlock icon="broom" title="Clean up the mess we made when the job is done" />
-        <AboutBlock icon="circle-check" title="Quality work and craftmanship guarantee" />
-        <AboutBlock icon="comment" title="Clear and quick communication" />
-
-      </ul>
-      <div className="w-full mt-20">
-        <div className="relative grid grid-rows-2 px-5 md:grid-rows-1 md:grid-cols-2 gap-x-5 gap-y-5">
-
-
-
-        <div className="relative h-96">
-          <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
-          <StaticImage
-            loading="lazy"
-            src="../images/tn_jeff-new_01.jpg"
-            alt='TN Home Improvement Contractor Jeff in action'
-            placeholder="blurred"
-            className="z-10 object-cover w-full h-full"
-            fit="cover"
-            width={1600}
-            height={1200}
-          />
-       </div>
-
-
-       <div className="relative h-96">
-          <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
-          <StaticImage
-            loading="lazy"
-            src='../images/tn_turk_01.jpg'
-            alt='TN Home Improvement Contractor Micheal in action'
-            placeholder="blurred"
-            className="z-10 object-cover w-full h-full"
-            fit="cover"
-            width={1600}
-            height={1200}
-          />
-       </div>
-
-
-          <div id="services" className="absolute bottom-0 w-full bg-blue-200/20 h-1/2 -z-10"></div>
-
-        </div>
+    <section id="about" className="flex flex-col items-center justify-center w-full py-16 text-center text-white bg-navy">
+      <div className="w-full px-8 m-auto md:px-16 max-w-screen-2xl">
+        <ul className="grid flex-row grid-cols-2 text-lg font-light md:grid-cols-3 lg:grid-cols-6 gap-y-6 gap-x-6">
+          <AboutBlock icon={<FaTools />} title="Home Repairs" />
+          <AboutBlock icon={<FaHammer />} title="Drywalling" />
+          <AboutBlock icon={<FaDoorOpen />} title="Doors & Framing" />
+          <AboutBlock icon={<MdBuild />} title="Property Maintanence" />
+          <AboutBlock icon={<FaPaintRoller />} title="Home Renovation" />
+          <AboutBlock icon={<FaUmbrellaBeach />} title="Patios" />
+        </ul>
       </div>
     </section>
   )
 }
-
-
-
-
-// const TripleImage = ( props ) =>{
-
-//   const image = images[props.index].image
-//   console.log('IMAGE', image);
-
-
-//   return(
-//     <div className="relative h-96">
-//       <div className="absolute z-20 w-full h-full from-slate-900/70 via-slate-50/0 to-zinc-50/0 bg-gradient-to-t"></div>
-//       <StaticImage
-//         loading="lazy"
-//         src={ image }
-//         alt={ 'hello' }
-//         placeholder="blurred"
-//         className="z-10 object-cover w-full h-full"
-//         fit="cover"
-//         width={800}
-//         height={600}
-//       />
-//     </div>
-//   )
-// }
-
 
 export default AboutUs

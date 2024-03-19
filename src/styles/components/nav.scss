@@ -28,7 +28,7 @@
 }
 
 .menuContainer__link{
-  @apply text-base lg:text-2xl font-bold;
+  @apply text-base lg:text-lg font-bold;
 }
 
 body {
@@ -61,13 +61,13 @@ body {
 .strip div {
     height: 3px;
     border-radius: 2px;
-    background: rgb(56 56 56);
+    background: #f4c263;
     margin: 10px;
     transition: all .55s cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 40px;
 }
 .burger.active .strip div {
-    background: white;
+    // background: white;
 }
 
 .burger.active .burger-strip-2 div:first-child {
