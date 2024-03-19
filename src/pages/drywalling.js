@@ -116,7 +116,7 @@ const Drywalling = () => {
                 <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"/drywall_before_01.jpg"}
+                        src={"../images/drywall_before_01.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
                         imgClassName="object-top"
@@ -127,7 +127,7 @@ const Drywalling = () => {
                   <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"/drywall_after_01.jpg"}
+                        src={"../images/drywall_after_01.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
                         imgClassName="object-top"
