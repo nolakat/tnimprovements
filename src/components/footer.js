@@ -21,38 +21,61 @@ const Footer = ({ hideFinance, hideForm }) => {
   const [isSent, setIsSent] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState('');
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    console.log('TARGET', e.target);
-
     const formData = new FormData(e.target);
 
-    console.log('FORM DATA', ...formData)
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      }).then((e) => console.log("Form successfully submitted", e))
-      ;
+      });
       setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
-      setTimeout(() => {
-        setIsLoading(false);
-        setIsSent(true);
-      }, 1600);
+      setIsSent(true);
     } catch (error) {
       setSubmissionMessage('An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+
+  //   console.log('TARGET', e.target);
+
+  //   const formData = new FormData(e.target);
+
+  //   console.log('FORM DATA', ...formData)
+  //   try {
+  //     await fetch("/", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //       body: new URLSearchParams(formData).toString(),
+  //     }).then((e) => console.log("Form successfully submitted", e))
+  //     ;
+  //     setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //       setIsSent(true);
+  //     }, 1600);
+  //   } catch (error) {
+  //     setSubmissionMessage('An error occurred. Please try again.');
+  //   }
+  // };
 
   return (
     <footer className="bg-white">
       {!hideFinance && (
         <div className="px-10 py-2 text-center bg-gold-100">
           <div className="flex flex-col items-center py-8 text-center text-darkNavy">
-            <h4 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">???? WTF  Special Financing Available</h4>
+            <h4 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">Special Financing Available</h4>
             <h2 className="mt-4 text-2xl">Call <span className="font-bold">412-508-5078</span> To Talk About Your Project</h2>
           </div>
         </div>
