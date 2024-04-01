@@ -29,7 +29,7 @@ const Footer = ({ hideFinance, hideForm }) => {
 
     const formData = new FormData(e.target);
 
-    console.log('FORM DATA', formData)
+    console.log('FORM DATA', ...formData)
     try {
       await fetch("/", {
         method: "POST",
@@ -63,7 +63,7 @@ const Footer = ({ hideFinance, hideForm }) => {
           {isLoading ? (
             <div className="flex items-center justify-center flex-1 py-16 px-14"><Spinner /></div>
           ) : (
-            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm" onSubmit={handleSubmit}>
+            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify={true} name="ContactForm" onSubmit={handleSubmit}>
               {isSent ? (
                 <>{submissionMessage}</>
               ) : (
