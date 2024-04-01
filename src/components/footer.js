@@ -35,7 +35,10 @@ const Footer = ({ hideFinance, hideForm }) => {
         body: new URLSearchParams(formData).toString(),
       });
       setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
-      setIsSent(true);
+        setTimeout(() => {
+          setIsLoading(false);
+          setIsSent(true);
+      }, 1000);
     } catch (error) {
       setSubmissionMessage('An error occurred. Please try again.');
     } finally {
