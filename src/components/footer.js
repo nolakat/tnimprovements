@@ -27,12 +27,14 @@ const Footer = ({ hideFinance, hideForm }) => {
 
     const formData = new FormData(e.target);
 
+    console.log('FORM DATA', formData)
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      });
+      }).then((e) => console.log("Form successfully submitted", e))
+      ;
       setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
       setTimeout(() => {
         setIsLoading(false);
