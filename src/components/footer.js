@@ -22,56 +22,33 @@ const Footer = ({ hideFinance, hideForm }) => {
   const [submissionMessage, setSubmissionMessage] = useState('');
 
 
+
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     const formData = new FormData(e.target);
-
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      });
-      setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
+      }).then((e) => {
+        setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
         setTimeout(() => {
           setIsLoading(false);
           setIsSent(true);
-      }, 1000);
+        }, 1600);
+      })
     } catch (error) {
-      setSubmissionMessage('An error occurred. Please try again.');
-    } finally {
       setIsLoading(false);
+      setIsSent(true);
+      setSubmissionMessage('An error occurred. Please try again.');
+      console.error(error);
     }
   };
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-
-  //   console.log('TARGET', e.target);
-
-  //   const formData = new FormData(e.target);
-
-  //   console.log('FORM DATA', ...formData)
-  //   try {
-  //     await fetch("/", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //       body: new URLSearchParams(formData).toString(),
-  //     }).then((e) => console.log("Form successfully submitted", e))
-  //     ;
-  //     setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //       setIsSent(true);
-  //     }, 1600);
-  //   } catch (error) {
-  //     setSubmissionMessage('An error occurred. Please try again.');
-  //   }
-  // };
 
   return (
     <footer className="bg-white">
