@@ -89,12 +89,12 @@ const Footer = ({ hideFinance, hideForm }) => {
           {isLoading ? (
             <div className="flex items-center justify-center flex-1 py-16 px-14"><Spinner /></div>
           ) : (
-            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm" onSubmit={handleSubmit}>
+            <form id="ContactFooter" className="flex-1 py-16 px-14" data-netlify="true" name="ContactFooter" onSubmit={handleSubmit}>
               {isSent ? (
                 <>{submissionMessage}</>
               ) : (
                 <>
-                <input type="hidden" name="form-name" value="ContactForm" />
+                <input type="hidden" name="form-name" value="ContactFooter" />
                   <h3 className="text-3xl">Get Your Free Estimate</h3>
                   <p className="pt-2 text-lg">by calling <span className="font-bold">412-508-5078</span> or by filling out the form below and we will contact you as soon as possible.</p>
                   <div className="flex flex-col mt-8 md:flex-row gap-x-8 gap-y-4">
