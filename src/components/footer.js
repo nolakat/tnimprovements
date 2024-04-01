@@ -47,12 +47,38 @@ const Footer = ({ hideFinance, hideForm }) => {
     }
   };
 
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(form);
+    const serializedData = new URLSearchParams(formData).toString();
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: serializedData
+    })
+    .then(response => {
+      if (response.ok) {
+        // Handle the success response
+        console.log("Form successfully submitted");
+      } else {
+        // Handle the error response
+        console.log("There was an error submitting the form");
+      }
+    })
+    .catch(error => console.error("Error:", error));
+  });
+
   return (
     <footer className="bg-white">
       {!hideFinance && (
         <div className="px-10 py-2 text-center bg-gold-100">
           <div className="flex flex-col items-center py-8 text-center text-darkNavy">
-            <h4 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">Special Financing Available</h4>
+            <h4 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">???? WTF  Special Financing Available</h4>
             <h2 className="mt-4 text-2xl">Call <span className="font-bold">412-508-5078</span> To Talk About Your Project</h2>
           </div>
         </div>
@@ -63,7 +89,7 @@ const Footer = ({ hideFinance, hideForm }) => {
           {isLoading ? (
             <div className="flex items-center justify-center flex-1 py-16 px-14"><Spinner /></div>
           ) : (
-            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm" onSubmit={handleSubmit}>
+            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm">
               {isSent ? (
                 <>{submissionMessage}</>
               ) : (
