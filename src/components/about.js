@@ -15,7 +15,7 @@ const AboutBlock = (props) =>{
             {/* < className="h-12" icon={props.icon} color="#050e1b" size="xl" width="40" /> */}
           </div>
       </div>
-      <h5 className="pb-3 capitalize border-b-4 text-md border-gold-100">{ props.title }</h5>
+      <h3 className="pb-3 capitalize border-b-4 text-md border-gold-100">{ props.title }</h3>
     </li>
 
   )

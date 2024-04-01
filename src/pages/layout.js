@@ -23,5 +23,8 @@ export default Layout;
 
 
 export const Head = () => (
+  <>
   <SEO />
+  <html lang="en" />
+  </>
 )
