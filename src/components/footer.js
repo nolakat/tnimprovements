@@ -25,6 +25,8 @@ const Footer = ({ hideFinance, hideForm }) => {
     e.preventDefault();
     setIsLoading(true);
 
+    console.log('TARGET', e.target);
+
     const formData = new FormData(e.target);
 
     console.log('FORM DATA', formData)
