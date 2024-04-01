@@ -47,32 +47,6 @@ const Footer = ({ hideFinance, hideForm }) => {
     }
   };
 
-
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    const formData = new FormData(form);
-    const serializedData = new URLSearchParams(formData).toString();
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: serializedData
-    })
-    .then(response => {
-      if (response.ok) {
-        // Handle the success response
-        console.log("Form successfully submitted");
-      } else {
-        // Handle the error response
-        console.log("There was an error submitting the form");
-      }
-    })
-    .catch(error => console.error("Error:", error));
-  });
-
   return (
     <footer className="bg-white">
       {!hideFinance && (
@@ -89,7 +63,7 @@ const Footer = ({ hideFinance, hideForm }) => {
           {isLoading ? (
             <div className="flex items-center justify-center flex-1 py-16 px-14"><Spinner /></div>
           ) : (
-            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm">
+            <form id="ContactForm" className="flex-1 py-16 px-14" data-netlify="true" name="ContactForm" onSubmit={handleSubmit}>
               {isSent ? (
                 <>{submissionMessage}</>
               ) : (
