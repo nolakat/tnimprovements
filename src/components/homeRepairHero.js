@@ -8,7 +8,7 @@ const HomeRepairHero = ({ image, }) => {
   return (
       <div className="bg-navy">
           <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
-              <StaticImage
+              {/* <StaticImage
                 loading="eager"
                 src={"../images/doors/home_reno_after_01.jpg"}
                 alt="TN Home Improvements Banner Image"
@@ -17,9 +17,9 @@ const HomeRepairHero = ({ image, }) => {
                 imgClassName="object-middle"
                 width={2400}
                 height={1200}
-              />
+              /> */}
 
-            <StaticImage
+            {/* <StaticImage
               loading="eager"
               src={"../images/services_hero.jpg"}
               alt="TN Home Improvements Banner Image"
@@ -28,7 +28,7 @@ const HomeRepairHero = ({ image, }) => {
               imgClassName="object-middle"
               width={2400}
               height={1200}
-            />
+            /> */}
 
 
           <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">

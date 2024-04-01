@@ -159,7 +159,7 @@ const ServicesPage = () => {
             <div className="">
                 <StaticImage
                             loading="eager"
-                            src={"../images/patio_after_02.jpg"}
+                            src={"../images/doors/patio_after_01.jpg"}
                             alt="TN Home Improvements Banner Image"
                             placeholder="blurred"
                             className="w-full h-60"

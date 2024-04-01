@@ -1,41 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from './layout'
 import { StaticImage } from "gatsby-plugin-image"
 import { Carousel } from 'react-responsive-carousel';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const data = [
- {
-  src: "../images/doors/home_reno_after_01.jpg"
- }
-]
-
-
-const Slide = (src) =>{
-
-  return(
-    <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
-      <StaticImage
-          loading="eager"
-          src={"../images/doors/home_reno_after_01.jpg"}
-          alt="TN Home Improvements Banner Image"
-          placeholder="blurred"
-          className=""
-          imgClassName="object-top"
-          width={2400}
-          height={1200}
-        />
-    </div>
-  )
-}
-
-
-
 
 const Drywalling = () => {
-  const [currentIndex, setIndex] = useState(0);
-
 
   return (
     <div className="bg-navy">
@@ -93,7 +64,6 @@ const Drywalling = () => {
           key="1"
           showThumbs={false}
           showIndicators={false}
-              selectedItem={currentIndex}
               showArrows={false}
               emulateTouch={true}
               infiniteLoop={true}
@@ -104,7 +74,7 @@ const Drywalling = () => {
                 <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"../images/drywall_after_01.jpg"}
+                        src={"../images/drywall_before_01.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
                         imgClassName="object-top"

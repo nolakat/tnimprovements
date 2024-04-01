@@ -8,47 +8,13 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
-const Next = (idx, setIdx) =>{
-  setIdx(idx + 1)
-}
-
-const Prev = (idx, setIdx) =>{
- setIdx(idx - 1)
-}
-
-const data = [
- {
-  src: "../images/doors/home_reno_after_01.jpg"
- }
-]
-
-
-const Slide = (src) =>{
-
-  return(
-    <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
-      <StaticImage
-          loading="eager"
-          src={"../images/doors/home_reno_after_01.jpg"}
-          alt="TN Home Improvements Banner Image"
-          placeholder="blurred"
-          className=""
-          imgClassName="object-top"
-          width={2400}
-          height={1200}
-        />
-    </div>
-  )
-}
 
 
 
 
 const Patios = () => {
   const [currentIndex, setIndex] = useState(0);
-  const slideList = data.map((image, index) =>
-  < Slide key={index} src={image.src} />
-);
+
 
 
   return (
@@ -120,7 +86,7 @@ const Patios = () => {
                 <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"../images/patio_before_01.jpg"}
+                        src={"../images/help.jpg"}
                         alt="TN Home Improvements Banner Image"
                         placeholder="blurred"
                         className=""

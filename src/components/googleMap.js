@@ -3,6 +3,12 @@ import React, { useEffect } from 'react';
 const GrayscaleMap = () => {
     useEffect(() => {
         // Load the Google Maps script
+        const existingScript = document.querySelector('script[src^="https://maps.googleapis.com/maps/api/js"]');
+
+        if(existingScript){
+            return
+        }
+
         const script = document.createElement('script');
         script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCwuhFImwnN97PrTWKOEIb0-izvi-PIdXQ&callback=initMap`;
         script.async = true;

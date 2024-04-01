@@ -89,7 +89,7 @@ const Footer = ({ hideFinance, hideForm }) => {
                     </div>
                   </div>
                   <div className="flex flex-col items-start mt-7">
-                    <label className="text-lg" htmlFor="message">*How Can We Help You?
+                    <label className="w-full text-lg" htmlFor="message">*How Can We Help You?
                     <textarea className="w-full border-2" name="message" required />
                     </label>
                   </div>

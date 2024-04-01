@@ -18,7 +18,7 @@ const Slide = (src) =>{
 
   return(
     <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
-      <StaticImage
+      {/* <StaticImage
           loading="eager"
           src={"../images/doors/basement_after.jpg"}
           alt="TN Home Improvements Banner Image"
@@ -27,7 +27,7 @@ const Slide = (src) =>{
           imgClassName="object-top"
           width={2400}
           height={1200}
-        />
+        /> */}
     </div>
   )
 }

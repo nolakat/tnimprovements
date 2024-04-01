@@ -1,54 +1,13 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from './layout'
-import HomeRepairHero from "../components/homeRepairHero";
-import ButtonWhite from "../components/ButtonWhite";
 import { StaticImage } from "gatsby-plugin-image"
 import { Carousel } from 'react-responsive-carousel';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
-const Next = (idx, setIdx) =>{
-  setIdx(idx + 1)
-}
-
-const Prev = (idx, setIdx) =>{
- setIdx(idx - 1)
-}
-
-const data = [
- {
-  src: "../images/doors/home_reno_after_01.jpg"
- }
-]
-
-
-const Slide = (src) =>{
-
-  return(
-    <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
-      <StaticImage
-          loading="eager"
-          src={"../images/doors/framing_after_01.jpg"}
-          alt="TN Home Improvements Banner Image"
-          placeholder="blurred"
-          className=""
-          imgClassName="object-top"
-          width={2400}
-          height={1200}
-        />
-    </div>
-  )
-}
-
-
-
 
 const HomeRenovations = () => {
-  const [currentIndex, setIndex] = useState(0);
-  const slideList = data.map((image, index) =>
-  < Slide key={index} src={image.src} />
-);
 
 
     return (
@@ -110,7 +69,6 @@ const HomeRenovations = () => {
             key="1"
             showThumbs={false}
             showIndicators={false}
-                selectedItem={currentIndex}
                 showArrows={false}
                 emulateTouch={true}
                 infiniteLoop={true}
@@ -133,7 +91,7 @@ const HomeRenovations = () => {
                     <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                       <StaticImage
                           loading="eager"
-                          src={"../images/doors/home_reno_after_01.jpg"}
+                          src={"../images/home_reno_after_01.jpg"}
                           alt="TN Home Improvements Banner Image"
                           placeholder="blurred"
                           className=""
@@ -163,8 +121,8 @@ const HomeRenovations = () => {
           <div className="flex-1">
             <Carousel
             key="2"
-                selectedItem={currentIndex}
                 showArrows={false}
+                showThumbs={false}
                 emulateTouch={true}
                 infiniteLoop={true}
                 interval={12000}
