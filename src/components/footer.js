@@ -68,6 +68,7 @@ const Footer = ({ hideFinance, hideForm }) => {
                 <>{submissionMessage}</>
               ) : (
                 <>
+                <input type="hidden" name="form-name" value="ContactForm" />
                   <h3 className="text-3xl">Get Your Free Estimate</h3>
                   <p className="pt-2 text-lg">by calling <span className="font-bold">412-508-5078</span> or by filling out the form below and we will contact you as soon as possible.</p>
                   <div className="flex flex-col mt-8 md:flex-row gap-x-8 gap-y-4">
