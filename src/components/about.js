@@ -1,9 +1,6 @@
 import * as React from "react"
-import { FaTools, FaRegSquare, FaDoorOpen, FaPaintRoller, FaUmbrellaBeach, FaHammer } from 'react-icons/fa';
+import { FaTools, FaDoorOpen, FaPaintRoller, FaUmbrellaBeach, FaHammer } from 'react-icons/fa';
 import { MdBuild } from 'react-icons/md';
-
-
-import { StaticImage } from "gatsby-plugin-image"
 
 
 const AboutBlock = (props) =>{
@@ -13,7 +10,7 @@ const AboutBlock = (props) =>{
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="200" height="174" viewbox="0 0 200 173.20508075688772" className="scale-50">
             <path fill="#f4c263" d="M0 86.60254037844386L50 0L150 0L200 86.60254037844386L150 173.20508075688772L50 173.20508075688772Z"></path>
           </svg>
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-navy">
+          <div className="absolute text-4xl transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-navy">
             {props.icon}
             {/* < className="h-12" icon={props.icon} color="#050e1b" size="xl" width="40" /> */}
           </div>

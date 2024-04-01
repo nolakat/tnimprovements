@@ -52,7 +52,7 @@ const PropertyMaintenance = () => {
 
 
   return (
-    <div class="bg-navy">
+    <div className="bg-navy">
 
     <Layout marginTop={true}>
       <HomeRepairHero />
@@ -66,6 +66,8 @@ const PropertyMaintenance = () => {
         <div className="flex-1">
           <Carousel
           key="1"
+          showThumbs={false}
+          showIndicators={false}
               selectedItem={currentIndex}
               showArrows={false}
               emulateTouch={true}

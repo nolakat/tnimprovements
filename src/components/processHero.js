@@ -1,12 +1,10 @@
 import * as React from "react"
-import ButtonHero from './ButtonHero'
-import Badge from './badge'
 import { StaticImage } from "gatsby-plugin-image"
 
 
 const ProcessHero = ({ setIsPopupVisible }) =>{
   return(
-    <div class="bg-navy">
+    <div className="bg-navy">
       <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
           <StaticImage
           loading="eager"

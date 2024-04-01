@@ -55,7 +55,7 @@ const Footer = ({ hideFinance, hideForm }) => {
       {!hideFinance && (
         <div className="px-10 py-2 text-center bg-gold-100">
           <div className="flex flex-col items-center py-8 text-center text-darkNavy">
-            <h4 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">Special Financing Available</h4>
+            <h5 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">Special Financing Available</h5>
             <h2 className="mt-4 text-2xl">Call <span className="font-bold">412-508-5078</span> To Talk About Your Project</h2>
           </div>
         </div>
@@ -77,18 +77,21 @@ const Footer = ({ hideFinance, hideForm }) => {
                   <div className="flex flex-col mt-8 md:flex-row gap-x-8 gap-y-4">
                     <div className="flex flex-row flex-1 w-full gap-x-8">
                       <div className="flex flex-col items-start flex-1">
-                        <label className="text-lg" htmlFor="name">*Name</label>
+                        <label className="text-lg" htmlFor="name">*Name
                         <input className="w-full border-2" type="text" name="name" required />
+                        </label>
                       </div>
                     </div>
                     <div className="flex flex-col items-start flex-1">
-                      <label className="text-lg" htmlFor="phone">*Phone Number</label>
+                      <label className="text-lg" htmlFor="phone">*Phone Number
                       <input className="w-full border-2" type="tel" name="phone" required/>
+                      </label>
                     </div>
                   </div>
                   <div className="flex flex-col items-start mt-7">
-                    <label className="text-lg" htmlFor="message">*How Can We Help You?</label>
+                    <label className="text-lg" htmlFor="message">*How Can We Help You?
                     <textarea className="w-full border-2" name="message" required />
+                    </label>
                   </div>
                   <button type="submit" className="block px-6 py-2 m-auto text-lg font-semibold mt-7 min-w-44 w-fit bg-gold-100 text-darkNavy rounded-4xl">Submit</button>
                 </>

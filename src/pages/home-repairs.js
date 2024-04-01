@@ -1,20 +1,11 @@
 import React, { useState } from "react"
 import Layout from './layout'
-import HomeRepairHero from "../components/homeRepairHero";
-import ButtonWhite from "../components/ButtonWhite";
+
 import { StaticImage } from "gatsby-plugin-image"
 import { Carousel } from 'react-responsive-carousel';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-
-const Next = (idx, setIdx) =>{
-  setIdx(idx + 1)
-}
-
-const Prev = (idx, setIdx) =>{
- setIdx(idx - 1)
-}
 
 const data = [
  {
@@ -46,16 +37,13 @@ const Slide = (src) =>{
 
 const HomeRepairs = () => {
   const [currentIndex, setIndex] = useState(0);
-  const slideList = data.map((image, index) =>
-  < Slide key={index} src={image.src} />
-);
 
 
   return (
-    <div class="bg-navy">
+    <div className="bg-navy">
 
     <Layout marginTop={true}>
-    <div class="bg-navy">
+    <div className="bg-navy">
           <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
               <StaticImage
                 loading="eager"
@@ -103,6 +91,8 @@ const HomeRepairs = () => {
         <div className="flex-1">
           <Carousel
           key="1"
+          showThumbs={false}
+          showIndicators={false}
               selectedItem={currentIndex}
               showArrows={false}
               emulateTouch={true}

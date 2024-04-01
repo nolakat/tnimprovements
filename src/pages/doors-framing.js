@@ -1,20 +1,11 @@
 import React, { useState } from "react"
 import Layout from './layout'
-import HomeRepairHero from "../components/homeRepairHero";
-import ButtonWhite from "../components/ButtonWhite";
 import { StaticImage } from "gatsby-plugin-image"
 import { Carousel } from 'react-responsive-carousel';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
-const Next = (idx, setIdx) =>{
-  setIdx(idx + 1)
-}
-
-const Prev = (idx, setIdx) =>{
- setIdx(idx - 1)
-}
 
 const data = [
  {
@@ -29,7 +20,7 @@ const Slide = (src) =>{
     <div className="flex flex-col items-center justify-center px-6 py-16 odd:float-left even:float-right">
       <StaticImage
           loading="eager"
-          src={"../images/doors/framing_after_01.jpg"}
+          src={"../images/doors/basement_after.jpg"}
           alt="TN Home Improvements Banner Image"
           placeholder="blurred"
           className=""
@@ -52,32 +43,33 @@ const DoorsFraming = () => {
 
 
   return (
-    <div class="bg-navy">
+    <div className="bg-navy">
 
     <Layout marginTop={true}>
-    <div class="bg-navy">
-          <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
-              <StaticImage
-                loading="eager"
-                src={"../images/door_cover.jpg"}
-                alt="TN Home Improvements Banner Image"
-                placeholder="blurred"
-                className="!hidden md:block heroContainer__image "
-                imgClassName="object-middle"
-                width={2400}
-                height={1200}
-              />
+    <div className="bg-navy">
+    <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
+          <StaticImage
+          loading="eager"
+        src={"../images/working_05.jpg"}
+        alt="TN Home Improvements Banner Image"
+        placeholder="blurred"
+        className="!hidden md:!block heroContainer__image"
+        imgClassName="object-middle"
+        width={4800}
+        height={2400}
+      />
 
-            <StaticImage
-              loading="eager"
-              src={"../images/door_cover.jpg"}
-              alt="TN Home Improvements Banner Image"
-              placeholder="blurred"
-              className=" md:!hidden"
-              imgClassName="object-top"
-              width={2400}
-              height={1200}
-            />
+<StaticImage
+          loading="eager"
+        src="../images/services_hero_02.jpg"
+        alt="TN Home Improvements Banner Image"
+        placeholder="blurred"
+        className="md:!hidden"
+        imgClassName="object-middle"
+        width={2400}
+        height={1200}
+      />
+
 
 
           <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">
@@ -108,6 +100,8 @@ const DoorsFraming = () => {
               emulateTouch={true}
               infiniteLoop={true}
               interval={12000}
+              showThumbs={false}
+              showIndicators={false}
               showStatus={false}
               preventMovementUntilSwipeScrollTolerance={true}
               autoPlay>

@@ -17,7 +17,7 @@ export const contact = () =>{
 
         <form className="flex flex-col max-w-3xl m-auto mt-12 gap-y-4" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
-          <div class="flex flex-col md:flex-row gap-x-8 gap-y-4">
+          <div className="flex flex-col md:flex-row gap-x-8 gap-y-4">
             <div className="flex flex-row flex-1 w-full gap-x-8">
               <div className="flex flex-col items-start flex-1">
                 <label className="text-lg" for="name">Name</label>

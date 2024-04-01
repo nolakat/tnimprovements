@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function PopupForm({ isPopupVisible, setIsPopupVisible }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+
 
   // const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,20 +16,6 @@ function PopupForm({ isPopupVisible, setIsPopupVisible }) {
     }
   }, [isPopupVisible]); // This effect depends on `isPopupVisible`
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   alert('Form submitted. Check console for data.');
-  //   setIsPopupVisible(false); // Close the popup after form submission
-  // };
 
   // Function to close the popup
   const handleClose = () => {
@@ -52,7 +34,6 @@ function PopupForm({ isPopupVisible, setIsPopupVisible }) {
       await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API call delay
 
       // If successful
-      console.log('successful');
       setIsLoading(false);
       setSubmissionMessage('Thank you for your message!');
       // setIsPopupVisible(false); // Optionally close the popup on form submission success
@@ -100,21 +81,24 @@ function PopupForm({ isPopupVisible, setIsPopupVisible }) {
                 <p className="mb-8">Looking for a home upgrade? Fill out the form below to get a free estimate. We'll provide personalized solutions for your project and help turn your vision into reality.</p>
 
                 <input type="hidden" name="form-name" value="contact" />
-                <div class="flex flex-col md:flex-row gap-x-8 gap-y-4">
+                <div className="flex flex-col md:flex-row gap-x-8 gap-y-4">
                   <div className="flex flex-row flex-1 w-full gap-x-8">
                     <div className="flex flex-col items-start flex-1">
-                      <label className="text-lg" for="name">Name</label>
+                      <label className="text-lg" for="name">Name
                       <input className="w-full border-2" type="text" name="firstName" required />
+                      </label>
                     </div>
                   </div>
                   <div className="flex flex-col items-start flex-1">
-                    <label className="text-lg" for="phone">Phone Number</label>
+                    <label className="text-lg" for="phone">Phone Number
                     <input className="w-full border-2" type="tel" name="phone" required/>
+                    </label>
                   </div>
                 </div>
                 <div className="flex flex-col items-start mt-7">
-                  <label className="text-lg" for="message">Tell Us About Your Project</label>
+                  <label className="text-lg" for="message">Tell Us About Your Project
                   <textarea className="w-full border-2" type="textarea" name="message" required />
+                  </label>
                 </div>
 
                 <button type="submit" className="block px-6 py-2 m-auto text-lg font-semibold mt-7 min-w-44 w-fit bg-gold-100 text-darkNavy rounded-4xl font-body">Submit</button>
@@ -131,16 +115,3 @@ function PopupForm({ isPopupVisible, setIsPopupVisible }) {
 }
 
 export default PopupForm;
-
-// Add the following styles in your CSS file or inside a <style> tag
-/*
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes dropIn {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-*/

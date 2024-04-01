@@ -52,12 +52,12 @@ const Patios = () => {
 
 
   return (
-    <div class="bg-navy">
+    <div className="bg-navy">
 
     <Layout marginTop={true}>
 
 
-    <div class="bg-navy">
+    <div className="bg-navy">
           <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
               <StaticImage
                 loading="eager"
@@ -107,6 +107,8 @@ const Patios = () => {
         <div className="flex-1">
           <Carousel
           key="1"
+          showThumbs={false}
+          showIndicators={false}
               selectedItem={currentIndex}
               showArrows={false}
               emulateTouch={true}

@@ -1,16 +1,14 @@
 import * as React from "react"
-import ButtonHero from './ButtonHero'
-import Badge from './badge'
 import { StaticImage } from "gatsby-plugin-image"
 
 
 const ServiceHero = ({ setIsPopupVisible }) =>{
   return(
-    <div class="bg-navy">
+    <div className="bg-navy">
       <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
           <StaticImage
           loading="eager"
-        src={"../images/services_hero.jpg"}
+        src={"../images/services_hero_02.jpg"}
         alt="TN Home Improvements Banner Image"
         placeholder="blurred"
         className="!hidden md:!block heroContainer__image"
@@ -21,7 +19,7 @@ const ServiceHero = ({ setIsPopupVisible }) =>{
 
 <StaticImage
           loading="eager"
-        src="../images/services_hero.jpg"
+        src="../images/services_hero_02.jpg"
         alt="TN Home Improvements Banner Image"
         placeholder="blurred"
         className="md:!hidden"

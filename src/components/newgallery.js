@@ -16,9 +16,9 @@ const NewGallery = () => {
   return(
     <section className="px-8 py-32 border-b border-tdf lg:px-16 bg-navy border-darkNavy">
       <div className="m-auto max-w-screen-2xl">
-        <div class="max-w-screen-md m-auto pb-12 flex flex-col items-center">
+        <div className="max-w-screen-md m-auto pb-12 flex flex-col items-center">
           <h3 className="pb-2 mb-4 text-3xl text-center text-white border-b-2 border-gold-100 w-fit">Before & After Showcase</h3>
-          <p class="text-white text-center text-lg">Dive into our portfolio of home renovations and commercial remodels. From modernizing interiors to crafting inviting patios, our gallery showcases a range of projects that highlight our quality and creativity. See the remarkable transformations and envision the potential for your own space.</p>
+          <p className="text-white text-center text-lg">Dive into our portfolio of home renovations and commercial remodels. From modernizing interiors to crafting inviting patios, our gallery showcases a range of projects that highlight our quality and creativity. See the remarkable transformations and envision the potential for your own space.</p>
         </div>
         <div className="w-full">
           <Tabs className="flex flex-col md:flex-row" forceRenderTabPanel={true} selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
@@ -46,7 +46,7 @@ const NewGallery = () => {
           </div>
 
             <div className="flex-1 border border-1 border-white/25 ">
-              <div class="m-auto grid row-span-1 col-span-1">
+              <div className="m-auto grid row-span-1 col-span-1">
               <TabPanel forceRender={true} className="col-start-1 row-start-1"  >
                   <ReactCompareImage sliderLineColor="#f4c263" aspectRatio="wider" leftImage="commercial_before.jpg" rightImage="commercial_after_01.jpg" />
                 </TabPanel>

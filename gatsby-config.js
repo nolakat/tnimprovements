@@ -17,6 +17,12 @@
         // Any invalid keyword or empty string defaults to `anonymous`
         crossOrigin: `use-credentials`,
       },
+      siteMetadata: {
+        title: `T&N Home Improvements`,
+        description: `Transform your Pittsburgh home with trusted local experts. With over 20 years of experience, our dedicated team specializes in comprehensive home repairs, renovations, patios, doors, framing, and property maintenance. Whether you're looking to enhance your living space or maintain the beauty of your property, we're your go-to contractors in Pittsburgh. Experience the peace of mind that comes with professional, reliable home improvement services tailored to your needs.`,
+        image: `/tn_logo.png`,
+        siteUrl: `https://www.tnimprovements.com`,
+      }
     },
   ]
 }

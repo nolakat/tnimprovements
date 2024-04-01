@@ -5,17 +5,17 @@ const Map = () =>{
 
   return(
     <div className="text-white bg-navy">
-      <div class="max-w-screen-2xl m-auto py-32 ">
-        <div class=" flex flex-col md:grid md:grid-cols-4 gap-x-4">
-          <h3 class="text-center col-span-4 mb-12 lg:mb-0 lg:hidden text-3xl w-fit m-auto border-b-2 pb-3 border-gold-100">Our Service Areas</h3>
+      <div className="max-w-screen-2xl m-auto py-32 ">
+        <div className=" flex flex-col md:grid md:grid-cols-4 gap-x-4">
+          <h3 className="text-center col-span-4 mb-12 lg:mb-0 lg:hidden text-3xl w-fit m-auto border-b-2 pb-3 border-gold-100">Our Service Areas</h3>
           <div className="flex items-center col-span-4 mx-16 overflow-hidden lg:col-span-2 md:mx-10">
             <CountyMap />
           </div>
-          <div class=" col-span-4 lg:col-span-2 ">
-            <h3 class="hidden lg:block text-center text-3xl w-fit m-auto border-b-2 pb-3 border-gold-100">Our Service Areas - Your Neighborhood Included</h3>
+          <div className=" col-span-4 lg:col-span-2 ">
+            <h3 className="hidden lg:block text-center text-3xl w-fit m-auto border-b-2 pb-3 border-gold-100">Our Service Areas - Your Neighborhood Included</h3>
 
-            <div class="container hidden md:block mx-auto p-4 mt-12">
-              <ul class="justify-start w-fit m-auto gap-x-10 grid text-center md:text-left grid-cols-4 gap-4 font-semibold capitalize">
+            <div className="container hidden md:block mx-auto p-4 mt-12">
+              <ul className="justify-start w-fit m-auto gap-x-10 grid text-center md:text-left grid-cols-4 gap-4 font-semibold capitalize">
                 <li>Adams</li>
                 <li>Aleppo</li>
                 <li>Aspinwall</li>

@@ -1,6 +1,8 @@
 import React from 'react';
 import NavBar from '../components/nav'
 import Footer from "../components/footer"
+import { SEO } from "../components/seo"
+
 
 const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
   return (
@@ -18,3 +20,8 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
 };
 
 export default Layout;
+
+
+export const Head = () => (
+  <SEO />
+)

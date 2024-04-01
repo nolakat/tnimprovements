@@ -36,7 +36,7 @@ const WhoAreWe = () => {
 
 
   return (
-    <div class="bg-white">
+    <div className="bg-white">
       <PopupForm isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} />
     <Layout marginTop={true} hideFinance={true}>
       <div className="flex flex-col px-12 pt-10 md:flex-row gap-x-6">
@@ -59,7 +59,7 @@ const WhoAreWe = () => {
         <div className="flex-1 py-10">
           <div className="px-8 py-16 text-navy">
             <h1 className="pb-2 m-auto text-4xl text-center border-b-2 text-navy border-gold-100 w-fit font-display">Who Are We</h1>
-            <div class="text-2xl flex flex-row gap-x-6 items-center justify-center mt-2">
+            <div className="text-2xl flex flex-row gap-x-6 items-center justify-center mt-2">
               <a href="https://www.facebook.com/profile.php?id=100077605338760" aria-label="go to facebook page"><FaFacebook color="#1e283b" size="25" /></a>
               <a href="https://www.instagram.com/tn_homeimprovements/" aria-label="go to instagram page"><FaInstagram color="#1e283b" size="25" /></a>
             </div>

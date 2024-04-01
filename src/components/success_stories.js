@@ -53,6 +53,8 @@ const slideList = data.map((quote, index) =>
           selectedItem={currentIndex}
           onChange={(index, item)=>{setIndex(index)}}
           showArrows={false}
+          showThumbs={false}
+          showIndicators={false}
           emulateTouch={true}
           infiniteLoop={true}
           interval={12000}

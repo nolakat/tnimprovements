@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // Layout component for page structure
 import Layout from './layout';
 // Component for before/after image comparison
@@ -61,10 +61,12 @@ const CommercialRemodel = () => {
           </div>
         </div>
 
-        <div class="flex flex-row px-12 gap-x-6 items-center justify-center">
+        <div className="flex flex-row items-center justify-center px-12 gap-x-6">
           <div className="w-3/4 ">
             <Carousel
             key="1"
+            showThumbs={false}
+            showIndicators={false}
                 showArrows={false}
                 emulateTouch={true}
                 infiniteLoop={true}

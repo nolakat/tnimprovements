@@ -61,7 +61,7 @@ const slideList = data.map((quote, index) =>
 
   return(
     <section id="gallery" className="pb-20 ">
-      <div class="hidden md:block">
+      <div className="hidden md:block">
         {slideList}
       </div>
       <div className="block w-screen md:hidden">
@@ -77,6 +77,8 @@ const slideList = data.map((quote, index) =>
           selectedItem={currentIndex}
           onChange={(index, item)=>{setIndex(index)}}
           showArrows={false}
+          showThumbs={false}
+          showIndicators={false}
           emulateTouch={true}
           infiniteLoop={true}
           interval={12000}

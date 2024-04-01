@@ -52,16 +52,16 @@ const HomeRenovations = () => {
 
 
     return (
-      <div class="bg-navy">
+      <div className="bg-navy">
 
       <Layout marginTop={true}>
 
 
-      <div class="bg-navy">
+      <div className="bg-navy">
           <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
               <StaticImage
                 loading="eager"
-                src={"../images/home_reno_cover.jpg"}
+                src={"../images/renovation_hero.jpg"}
                 alt="TN Home Improvements Banner Image"
                 placeholder="blurred"
                 className="!hidden md:!block heroContainer__image "
@@ -72,7 +72,7 @@ const HomeRenovations = () => {
 
             <StaticImage
               loading="eager"
-              src={"../images/home_reno_cover.jpg"}
+              src={"../images/renovation_hero.jpg"}
               alt="TN Home Improvements Banner Image"
               placeholder="blurred"
               className=" md:!hidden"
@@ -108,6 +108,8 @@ const HomeRenovations = () => {
           <div className="flex-1">
             <Carousel
             key="1"
+            showThumbs={false}
+            showIndicators={false}
                 selectedItem={currentIndex}
                 showArrows={false}
                 emulateTouch={true}
@@ -116,14 +118,14 @@ const HomeRenovations = () => {
                 showStatus={false}
                 preventMovementUntilSwipeScrollTolerance={true}
                 autoPlay>
-                  <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
+                  <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right ">
                       <StaticImage
                           loading="eager"
-                          src={"../images/doors/home_reno_before_01.jpg"}
+                          src={"../images/home_reno_before.jpg"}
                           alt="TN Home Improvements Banner Image"
                           placeholder="blurred"
                           className=""
-                          imgClassName="object-top"
+                          imgClassName="object-top rotate-90"
                           width={2400}
                           height={1200}
                         />

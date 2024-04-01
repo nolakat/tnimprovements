@@ -1,12 +1,11 @@
 import * as React from "react"
-import ButtonHero from './ButtonHero'
 import Badge from './badge'
 import { StaticImage } from "gatsby-plugin-image"
 
 
 const Hero = ({ setIsPopupVisible }) =>{
   return(
-    <div class="bg-navy">
+    <div className="bg-navy">
       <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-650">
           <StaticImage
           loading="eager"
@@ -53,16 +52,16 @@ const Hero = ({ setIsPopupVisible }) =>{
               <li>Affordable Pricing <span className="hidden px-2 text-3xl font-thin opacity-60 md:inline-block">|</span></li>
               <li>Licensed & Fully Insuranced</li> </ul>
               <div className="relative left-4">
-              <a href="#ContactForm" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
+              <a href="#ContactFooter" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
 
                 {/* <ButtonHero setIsPopupVisible={setIsPopupVisible}  label="GET YOUR FREE ESTIMATE" /> */}
               </div>
           </div>
         </div>
       </div>
-      <div class="md:hidden text-gold-100 text-center py-9 w-fit m-auto">
+      <div className="m-auto text-center md:hidden text-gold-100 py-9 w-fit">
         <span className="block mb-12 text-3xl leading-snug">Building Pittsburgh Dreams,<br/> One Home At A Time.</span>
-        <a href="#ContactForm" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
+        <a href="#ContactFooter" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
 
 
       </div>

@@ -1,26 +1,21 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import Logo from '../images/tn_logo.svg'
-import Icon from '../icons/phone.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
+import { FaPhone, FaFacebookF, FaInstagram } from 'react-icons/fa';
+
 
 
 const MainMenu = () =>{
   return(
     <ul className="items-center hidden px-5 py-1 rounded-3xl md:flex menuContainer bg-gold-100">
-     <li><div className="flex items-center font-semibold" ><FontAwesomeIcon className="w-6 mr-2 text-navy" icon={faPhone} />(412) 508-5078</div></li>
-     <li></li>
-      <div class="text-xl flex flex-row gap-x-4 lg:gap-x-6">
-        <a href="https://www.facebook.com/profile.php?id=100077605338760" className="text-navy" aria-label="go to facebook page"><FontAwesomeIcon icon={['fab', 'facebook-f']} /></a>
-        <a href="https://www.instagram.com/tn_homeimprovements/" className="text-navy" aria-label="go to instagram page"><FontAwesomeIcon icon={['fab', 'instagram']} /></a>
+     <li><div className="flex items-center font-semibold" > <FaPhone size="1.2em" style={{ transform: 'scaleX(-1)' }} /> <span className="pl-2">(412) 508-5078</span></div></li>
+     <li>
+      <div className="flex flex-row text-xl gap-x-4 lg:gap-x-6">
+        <a href="https://www.facebook.com/profile.php?id=100077605338760" className="text-navy" aria-label="go to facebook page"><FaFacebookF size="1em" /></a>
+        <a href="https://www.instagram.com/tn_homeimprovements/" className="text-navy" aria-label="go to instagram page"><FaInstagram size="1em" /></a>
       </div>
+      </li>
     </ul>
-/* <ul className="hidden px-5 py-1 rounded-2xl md:flex menuContainer bg-gold-100">
-<li><a className="menuContainer__link scroll-smooth" href="#about">Services</a></li>
-<li><a className="menuContainer__link" href="#gallery">Testimonials</a></li>
-<li><a className="menuContainer__link" href="#contact">Contact</a></li>
-</ul> */
   )
 }
 
@@ -53,20 +48,12 @@ const MobileMenu = ({ handleClick }) =>{
   )
 }
 
-const CallNow = () =>{
-  return(
-    <div className="flex flex-row">
-      <img src={ Icon} className="h-6 relative top-1.5" />
-      <a href="tel:412-508-5078" className="font-thin text-red-500">(412) 508-5078 dfs</a>
-    </div>
-  )
-}
 
-const MobileTrigger = ({ handleClick, active}) =>{
+const MobileTrigger = ({ handleClick, handleKeyPress, active}) =>{
 
   return(
     <div className="wrap md:hidden">
-      <div onClick={handleClick} class={`burger ${ active ? "active" : "" }`}>
+      <div onClick={handleClick} role="button"  tabIndex="0" onKeyDown={handleKeyPress} className={`burger ${ active ? "active" : "" }`}>
         <div className="strip burger-strip-2">
           <div></div>
           <div></div>
@@ -86,6 +73,13 @@ const NavBar = () =>{
     setActive(!active)
   }
 
+  const handleKeyPress = (event) => {
+    // Check if the key pressed is 'Enter'
+    if (event.key === 'Enter') {
+      setActive(!active)
+    }
+  };
+
 
   return(
     <div className="sticky top-0 z-50 block w-full md:absolute bg-navy">
@@ -94,28 +88,28 @@ const NavBar = () =>{
         <div className="flex justify-between row-auto px-8 py-8 m-auto max-w-screen-2xl">
           <Link to="/" className="flex flex-row items-end justify-center h-full text-md gap-x-1">
               <img src={Logo} alt="TN Home Improvements Logo" className="h-10" />
-              <h5 class="text-white leading-none">Home<br/>Improvements</h5>
+              <h5 className="leading-none text-white">Home<br/>Improvements</h5>
             </Link>
           <MainMenu />
-          <MobileTrigger active={active} handleClick={handleClick}  />
+          <MobileTrigger active={active} handleClick={handleClick} onKeyDown={handleKeyPress} role="button"  tabIndex="0"  />
         </div>
-        <div class={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
-          <div class={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
-            <MobileMenu handleClick={handleClick}  />
+        <div className={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
+          <div className={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
+            <MobileMenu handleClick={handleClick} onKeyDown={handleKeyPress} role="button" tabIndex="0"  />
           </div>
         </div>
       </div>
-      <div class="hidden md:flex flex-row mx-14">
-        <div class="flex-1">
+      <div className="flex-row hidden md:flex mx-14">
+        <div className="flex-1">
 
          </div>
-        <div class="flex-1 flex flex-row flex-end gap-x-8 py-5 px-5 bg-navy/75 text-gold uppercase">
-        <Link to="/services" class="text-gold-100 cursor-pointer underline-animation relative font-display border-" activeClassName="font-display text-gold-100">Services</Link>
-        {/* <h5 class="text-gold-100 cursor-pointer underline-animation relative">Gallery</h5> */}
-        <Link to="/steps" class="text-gold-100 cursor-pointer underline-animation relative font-display"  activeClassName="font-display text-gold-100">Our Process</Link>
-        <Link to="/who-are-we" class="text-gold-100 cursor-pointer underline-animation relative font-display"  activeClassName="font-display text-gold-100">Who Are We</Link>
+        <div className="flex flex-row flex-1 px-5 py-5 uppercase flex-end gap-x-8 bg-navy/75 text-gold">
+        <Link to="/services" className="relative cursor-pointer text-gold-100 underline-animation font-display border-" activeClassName="font-display text-gold-100">Services</Link>
+        {/* <h5 className="relative cursor-pointer text-gold-100 underline-animation">Gallery</h5> */}
+        <Link to="/steps" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Our Process</Link>
+        <Link to="/who-are-we" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Who Are We</Link>
 
-        <Link to="/contact" class="text-gold-100 cursor-pointer underline-animation relative font-display"  activeClassName="font-display text-gold-100">Contact</Link>
+        <Link to="/contact" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Contact</Link>
         </div>
       </div>
 
