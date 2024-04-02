@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
-
-import HomePage from "./home"
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar, faComment, faWrench, faPaintRoller  } from '@fortawesome/free-solid-svg-icons'
+import { SEO } from "../components/seo"
 import Layout from './layout'
 import Hero from '../components/hero'
 import AboutUs from "../components/about"
@@ -17,7 +15,7 @@ import PopupForm from "../components/popup"
 
 library.add(fab, faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHandshake, faRankingStar, faClock, faBroom, faCircleCheck, faStar, faComment, faWrench, faPaintRoller)
 
-// markup
+
 const IndexPage = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -40,3 +38,20 @@ const IndexPage = () => {
 
 
 export default IndexPage
+
+
+
+
+
+export function Head() {
+  return (
+    <title>Hello World</title>
+  )
+}
+
+// export const Head = () => (
+//   <>
+//   <SEO />
+//   <html lang="en" />
+//   </>
+// )

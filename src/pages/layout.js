@@ -6,6 +6,7 @@ import { SEO } from "../components/seo"
 
 const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
   return (
+
     <div className="scroll-smooth">
       {/* <title>T&N Home Improvements | Local Pittsburgh Contractors for Home Improvements & Repairs </title> */}
       <NavBar />
@@ -21,13 +22,4 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
 
 export default Layout;
 
-export const Head = () => <title>Hello World</title>
 
-
-
-// export const Head = () => (
-//   <>
-//   <SEO />
-//   <html lang="en" />
-//   </>
-// )
