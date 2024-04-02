@@ -86,7 +86,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <div className="flex flex-col items-start mt-7">
-                  <label className="text-lg" for="message">*Tell Us About Your Project
+                  <label className="w-full text-lg" for="message">*Tell Us About Your Project
                   <textarea className="w-full border-2" type="textarea" name="message" required />
                   </label>
                 </div>
