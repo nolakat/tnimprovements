@@ -34,6 +34,7 @@ module.exports = {
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sass`,
       'gatsby-plugin-postcss',
+      'gatsby-plugin-react-helmet',
       {
         resolve: `gatsby-plugin-google-gtag`,
         options: {
