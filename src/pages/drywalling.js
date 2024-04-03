@@ -74,7 +74,7 @@ const Drywalling = () => {
                 <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
                     <StaticImage
                         loading="eager"
-                        src={"../images/drywall_before_01.jpg"}
+                        src={"../images/drywall_before_help.jpg"}
                         alt="TN Home Imrpovements Drywalling Unfinished Basement"
                         placeholder="blurred"
                         imgClassName="object-top"
