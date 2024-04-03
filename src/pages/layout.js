@@ -8,7 +8,6 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
 
   // const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername } = useSiteMetadata()
   const {title, description, image, siteUrl } = useSiteMetadata();
-  console.log('HELLO!!', title)
   const seo = {
     title: title ,
     description: description,
