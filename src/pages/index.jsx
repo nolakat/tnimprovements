@@ -19,7 +19,7 @@ library.add(fab, faCheckSquare, faCoffee, faChevronLeft, faChevronRight, faHands
 const IndexPage = () => {
 
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  useEffect(() => console.log(isPopupVisible), [isPopupVisible]);
+  // useEffect(() => console.log(isPopupVisible), [isPopupVisible]);
 
 
   return (
