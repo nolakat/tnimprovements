@@ -51,7 +51,7 @@ const DoorsFraming = () => {
           <StaticImage
           loading="eager"
         src={"../images/working_05.jpg"}
-        alt="TN Home Improvements Banner Image"
+        alt="TN Home Improvements Doors & Framing Banner Image"
         placeholder="blurred"
         className="!hidden md:!block heroContainer__image"
         imgClassName="object-middle"
@@ -62,7 +62,7 @@ const DoorsFraming = () => {
 <StaticImage
           loading="eager"
         src="../images/services_hero_02.jpg"
-        alt="TN Home Improvements Banner Image"
+        alt="TN Home Improvements Doors & Framing Banner Image"
         placeholder="blurred"
         className="md:!hidden"
         imgClassName="object-middle"
@@ -109,7 +109,7 @@ const DoorsFraming = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/doors/framing_after_02.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Improvements Doors & Framing Before Image"
                         placeholder="blurred"
                         className=""
                         imgClassName="object-top"
@@ -120,7 +120,7 @@ const DoorsFraming = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/doors/framing_after_01.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Improvements Doors & Framing After Image"
                         placeholder="blurred"
                         className=""
                         imgClassName="object-top"

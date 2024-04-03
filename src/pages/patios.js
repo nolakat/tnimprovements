@@ -87,7 +87,7 @@ const Patios = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/help.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Improvements Patios Before Image"
                         placeholder="blurred"
                         className=""
                         imgClassName="object-top"
@@ -98,7 +98,7 @@ const Patios = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/patio_after_02.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Improvements Patios After Image"
                         placeholder="blurred"
                         className=""
                         imgClassName="object-top"

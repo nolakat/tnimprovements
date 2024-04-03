@@ -77,7 +77,7 @@ const CommercialRemodel = () => {
                       <StaticImage
                           loading="eager"
                           src={"../images/juicy_studio/juicy_01.jpg"}
-                          alt="TN Home Improvements Banner Image"
+                          alt="TN Home Improvements Before Commercial Remodeling"
                           placeholder="blurred"
                           className=""
                           imgClassName="object-top"
@@ -86,7 +86,7 @@ const CommercialRemodel = () => {
                       <StaticImage
                           loading="eager"
                           src={"../images/juicy_studio/juicy_02.jpg"}
-                          alt="TN Home Improvements Banner Image"
+                          alt="TN Home Improvements After Commercial Remodeling"
                           placeholder="blurred"
                           className=""
                           imgClassName="object-cover"
@@ -95,7 +95,7 @@ const CommercialRemodel = () => {
                         <StaticImage
                           loading="eager"
                           src={"../images/juicy_studio/juicy_03.jpg"}
-                          alt="TN Home Improvements Banner Image"
+                          alt="TN Home Improvements After Commercial Remodeling"
                           placeholder="blurred"
                           className=""
                           imgClassName="object-cover"
@@ -103,7 +103,7 @@ const CommercialRemodel = () => {
                         <StaticImage
                           loading="eager"
                           src={"../images/juicy_studio/juicy_04.jpg"}
-                          alt="TN Home Improvements Banner Image"
+                          alt="TN Home Improvements After Commercial Image"
                           placeholder="blurred"
                           className=""
                           imgClassName="object-cover"

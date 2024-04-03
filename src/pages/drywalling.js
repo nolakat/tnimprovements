@@ -19,7 +19,7 @@ const Drywalling = () => {
               <StaticImage
                 loading="eager"
                 src={"../images/basement_hero.jpg"}
-                alt="TN Home Improvements Banner Image"
+                alt="TN Home Improvements Basement Refurbishment Banner Image"
                 placeholder="blurred"
                 className="!hidden md:!block heroContainer__image "
                 imgClassName="object-middle"
@@ -30,7 +30,7 @@ const Drywalling = () => {
             <StaticImage
               loading="eager"
               src={"../images/basement_hero.jpg"}
-              alt="TN Home Improvements Banner Image"
+              alt="TN Home Improvements Basement Refurbishment Banner Image"
               placeholder="blurred"
               className=" md:!hidden"
               imgClassName="object-middle"
@@ -75,7 +75,7 @@ const Drywalling = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/drywall_before_01.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Imrpovements Drywalling Unfinished Basement"
                         placeholder="blurred"
                         imgClassName="object-top"
                         width={2400}
@@ -86,7 +86,7 @@ const Drywalling = () => {
                     <StaticImage
                         loading="eager"
                         src={"../images/drywall_after_01.jpg"}
-                        alt="TN Home Improvements Banner Image"
+                        alt="TN Home Imrpovements Drywalling Completed Basement"
                         placeholder="blurred"
                         imgClassName="object-top"
                       />
