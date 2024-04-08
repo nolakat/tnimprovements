@@ -3,6 +3,7 @@ import NavBar from '../components/nav'
 import Footer from "../components/footer"
 import { Helmet } from "react-helmet"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
+import favIcon from '../images/tn_logo.png'
 
 const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
 
@@ -19,7 +20,12 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
   return (
 
     <div className="scroll-smooth">
-      <Helmet  htmlAttributes={{ lang : "en" }}>
+      <Helmet
+      htmlAttributes={{ lang : "en" }}
+      link={[
+        { rel: "icon", type: "image/png", href: favIcon }]}
+
+      >
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
