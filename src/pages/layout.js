@@ -27,6 +27,7 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
 
       >
         <title>{seo.title}</title>
+        <meta name="keywords" content="Pittsburgh, home repair, home improvements, drywall, basement remodel, remodelling, property management"></meta>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -35,6 +36,26 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
         <meta name="twitter:description" content={seo.description} />
         <meta name="twitter:image" content={seo.image} />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>" />
+
+        <script type="application/ld+json">
+          {`
+            {
+                "@context": "http://schema.org",
+                "@type": "LocalBusiness",
+                "address": [{"@type": "PostalAddress","addresslocality": "Pittsburgh","addressRegion": "PA","streetAddress": "108 Bellpark Dr","telephone": "(412) 370-6220"}],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "reviewCount": "7"
+                },
+                "name": "TN Home Improvements",
+                "priceRange": "$$",
+                "url": "https://www.tnimprovements.com/"
+            }
+          `}
+          </script>
+
+
       </Helmet>
       <NavBar />
         <main className={marginTop ? 'pt-24' : ''}>

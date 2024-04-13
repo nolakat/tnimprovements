@@ -5,7 +5,8 @@
   "description": "TN Home Improvements",
   "author": "Katie Nolan",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "node v14.21.1"
   ],
   "scripts": {
     "develop": "gatsby develop",
