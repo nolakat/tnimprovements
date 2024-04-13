@@ -22,8 +22,7 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
     <div className="scroll-smooth">
       <Helmet
       htmlAttributes={{ lang : "en" }}
-      link={[
-        { rel: "icon", type: "image/png", href: favIcon }]}
+
 
       >
         <title>{seo.title}</title>
@@ -35,7 +34,7 @@ const Layout = ({ children, marginTop, hideFinance, hideForm }) => {
         <meta name="twitter:url" content={seo.url} />
         <meta name="twitter:description" content={seo.description} />
         <meta name="twitter:image" content={seo.image} />
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>" />
+        <link rel="icon" href={favIcon} />
 
         <script type="application/ld+json">
           {`
