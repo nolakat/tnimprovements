@@ -1,34 +1,106 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import Badge from './badge'
 import { StaticImage } from "gatsby-plugin-image"
 
+const Hero = ({ setIsPopupVisible }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-const Hero = ({ setIsPopupVisible }) =>{
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 2 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 2 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? 2 : prevIndex - 1
+    );
+  };
+
   return(
     <div className="bg-navy">
       <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-650">
+
+
+        {/* Slider indicators */}
+        <div className="absolute z-20 flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
+          {[0, 1, 2].map((index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full ${
+                currentImageIndex === index ? 'bg-white' : 'bg-white/50'
+              }`}
+              onClick={() => setCurrentImageIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Static Images */}
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 0 ? 'opacity-100' : 'opacity-0'
+        }`}>
           <StaticImage
-          loading="eager"
-        src="../images/tn_company01.jpg"
-        alt="TN Home Improvements Banner Image"
-        placeholder="blurred"
-        className="!hidden md:!block heroContainer__image"
-        imgClassName="object-bottom"
-        width={4800}
-        height={2400}
-      />
+            loading="eager"
+            src="../images/tn_company01.jpg"
+            alt="TN Home Improvements Banner Image 1"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 1 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <StaticImage
+            loading="lazy"
+            src="../images/home_reno_after_01.jpg"
+            alt="TN Home Improvements Banner Image 2"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 2 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <StaticImage
+            loading="lazy"
+            src="../images/patio_after_02.jpg"
+            alt="TN Home Improvements Banner Image 3"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
 
-      <StaticImage
+        <StaticImage
           loading="eager"
-        src="../images/tn_company01.jpg"
-        alt="TN Home Improvements Banner Image"
-        placeholder="blurred"
-        className="md:!hidden"
-        imgClassName="object-bottom"
-        width={2400}
-        height={1200}
-      />
-
+          src="../images/tn_company01.jpg"
+          alt="TN Home Improvements Banner Image"
+          placeholder="blurred"
+          className="md:!hidden"
+          imgClassName="object-bottom"
+          width={2400}
+          height={1200}
+        />
 
         <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-start justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-20% via-transparent via-80% to-navy to-100% ">
           <div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0 md:items-start">

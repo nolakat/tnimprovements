@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import GrayscaleMap from "./googleMap";
-import { FaEnvelope, FaPhone, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaFacebookF, FaInstagram, FaArrowRight } from 'react-icons/fa';
 
 const Spinner = () => (
-  <svg width="100" height="100" viewBox="0 0 50 50">
-    <circle cx="25" cy="25" r="20" fill="none" stroke="#f4c263" strokeWidth="4" strokeDasharray="31.4" strokeLinecap="round">
+  <svg width="80" height="80" viewBox="0 0 50 50">
+    <circle cx="25" cy="25" r="20" fill="none" stroke="#f4c263" strokeWidth="3" strokeDasharray="31.4" strokeLinecap="round">
       <animateTransform
         attributeName="transform"
         type="rotate"
@@ -21,10 +21,6 @@ const Footer = ({ hideFinance, hideForm }) => {
   const [isSent, setIsSent] = useState(false);
   const [submissionMessage, setSubmissionMessage] = useState('');
 
-
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -35,7 +31,7 @@ const Footer = ({ hideFinance, hideForm }) => {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      }).then((e) => {
+      }).then(() => {
         setSubmissionMessage(`Thank you! We've received your message and will be in touch soon.`);
         setTimeout(() => {
           setIsLoading(false);
@@ -51,88 +47,149 @@ const Footer = ({ hideFinance, hideForm }) => {
   };
 
   return (
-    <footer className="bg-white">
+    <footer className="footer">
+      {/* Finance Banner */}
       {!hideFinance && (
-        <div className="px-10 py-2 text-center bg-gold-100">
-          <div className="flex flex-col items-center py-8 text-center text-darkNavy">
-            <h5 className="pb-1 m-auto mb-2 border-b-2 text-md border-navy w-fit">Special Financing Available</h5>
-            <h2 className="mt-4 text-2xl">Call <span className="font-bold">412-508-5078</span> To Talk About Your Project</h2>
+        <div className="footer__finance">
+          <div className="footer__finance-content">
+            <span className="footer__finance-label">Special Financing Available</span>
+            <h2 className="footer__finance-title">
+              Call <a href="tel:412-508-5078">(412) 508-5078</a> To Talk About Your Project
+            </h2>
           </div>
         </div>
       )}
 
+      {/* Contact Section */}
       {!hideForm && (
-        <div className="flex flex-col pb-10 md:flex-row">
-          {isLoading ? (
-            <div className="flex items-center justify-center flex-1 py-16 px-14"><Spinner /></div>
-          ) : (
-            <form id="ContactFooter" className="flex-1 py-16 px-14" data-netlify="true" name="ContactFooter" onSubmit={handleSubmit}>
-              {isSent ? (
-                <>{submissionMessage}</>
-              ) : (
-                <>
-                <input type="hidden" name="form-name" value="ContactFooter" />
-                  <h4 className="text-3xl">Get Your Free Estimate</h4>
-                  <p className="pt-2 text-lg">by calling <span className="font-bold">412-508-5078</span> or by filling out the form below and we will contact you as soon as possible.</p>
-                  <div className="flex flex-col mt-8 md:flex-row gap-x-8 gap-y-4">
-                    <div className="flex flex-row flex-1 w-full gap-x-8">
-                      <div className="flex flex-col items-start flex-1">
-                        <label className="text-lg" htmlFor="name">*Name
-                        <input className="w-full border-2" type="text" name="name" required />
-                        </label>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-start flex-1">
-                      <label className="text-lg" htmlFor="phone">*Phone Number
-                      <input className="w-full border-2" type="tel" name="phone" required/>
+        <div className="footer__contact" id="ContactFooter">
+          {/* Form Side */}
+          <div className="footer__form-section">
+            {isLoading ? (
+              <div className="footer__form-loading">
+                <Spinner />
+              </div>
+            ) : isSent ? (
+              <div className="footer__form-wrapper">
+                <div className="footer__form-success">
+                  <p>{submissionMessage}</p>
+                </div>
+              </div>
+            ) : (
+              <div className="footer__form-wrapper">
+                <span className="footer__form-label">Free Estimate</span>
+                <h3 className="footer__form-title">Get Your Free Estimate</h3>
+                <p className="footer__form-subtitle">
+                  Call <a href="tel:412-508-5078">(412) 508-5078</a> or fill out the form below and we'll contact you as soon as possible.
+                </p>
+                <form
+                  className="footer__form"
+                  data-netlify="true"
+                  name="ContactFooter"
+                  onSubmit={handleSubmit}
+                >
+                  <input type="hidden" name="form-name" value="ContactFooter" />
+                  <div className="footer__form-row">
+                    <div className="footer__form-group">
+                      <label className="footer__form-group-label" htmlFor="footer-name">
+                        Name *
                       </label>
+                      <input
+                        className="footer__form-input"
+                        type="text"
+                        id="footer-name"
+                        name="name"
+                        required
+                      />
+                    </div>
+                    <div className="footer__form-group">
+                      <label className="footer__form-group-label" htmlFor="footer-phone">
+                        Phone *
+                      </label>
+                      <input
+                        className="footer__form-input"
+                        type="tel"
+                        id="footer-phone"
+                        name="phone"
+                        required
+                      />
                     </div>
                   </div>
-                  <div className="flex flex-col items-start mt-7">
-                    <label className="w-full text-lg" htmlFor="message">*How Can We Help You?
-                    <textarea className="w-full border-2" name="message" required />
+                  <div className="footer__form-group">
+                    <label className="footer__form-group-label" htmlFor="footer-message">
+                      How Can We Help? *
                     </label>
+                    <textarea
+                      className="footer__form-textarea"
+                      id="footer-message"
+                      name="message"
+                      required
+                      placeholder="Hi, I'm looking to renovate my basement into a living space. The area is about 800 sq ft and I'd like to add drywall, flooring, and recessed lighting. When would you be available to come take a look?"
+                    />
                   </div>
-                  <button type="submit" className="block px-6 py-2 m-auto text-lg font-semibold mt-7 min-w-44 w-fit bg-gold-100 text-darkNavy rounded-4xl">Submit</button>
-                </>
-              )}
-            </form>
-          )}
-          <div className="flex-1">
-            <GrayscaleMap />
-            <div className="flex flex-col pt-4 gap-y-2">
-              <div className="flex flex-row items-center">
-                <FaEnvelope size="1.2em" /> <span className="pl-2">jeff@tnimprovements.com</span>
+                  <button type="submit" className="footer__form-submit">
+                    Submit Request
+                    <FaArrowRight />
+                  </button>
+                </form>
               </div>
-              <div className="flex flex-row items-center">
-                <FaPhone size="1.2em" style={{ transform: 'scaleX(-1)' }} /> <span className="pl-2">(412) 508-5078</span>
+            )}
+          </div>
+
+          {/* Info Side */}
+          <div className="footer__info-section">
+            <div className="footer__map">
+              <GrayscaleMap />
+            </div>
+            <div className="footer__info-grid">
+              <div className="footer__info-block">
+                <h5>Contact</h5>
+                <a href="mailto:jeff@tnimprovements.com">
+                  <FaEnvelope />
+                  jeff@tnimprovements.com
+                </a>
+                <a href="tel:412-508-5078">
+                  <FaPhone style={{ transform: 'scaleX(-1)' }} />
+                  (412) 508-5078
+                </a>
               </div>
-            </div>
-            <div className="pt-2">
-              <h5>Office</h5>
-              <p>108 Bellpark Dr <br/> Pittsburgh, PA 15229-2120</p>
-            </div>
-            <div className="pt-2">
-              <h5>Hours of Operation</h5>
-              <p>Mon - Sun <br/>Open 24 Hours</p>
+              <div className="footer__info-block">
+                <h5>Office</h5>
+                <p>108 Bellpark Dr<br />Pittsburgh, PA 15229-2120</p>
+              </div>
+              <div className="footer__info-block">
+                <h5>Hours</h5>
+                <p>Monday - Sunday<br />Open 24 Hours</p>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      <div className="flex flex-row items-center justify-between w-full py-6 text-white bg-slate-800 px-14">
-        <p className="italic">Copyright © {new Date().getFullYear()} TN Home Improvements</p>
-        <div className="flex flex-row text-2xl gap-x-6">
-          <a href="https://www.facebook.com/profile.php?id=100077605338760" aria-label="Go to Facebook page">
-            <FaFacebookF size="1em" />
+      {/* Bottom Bar */}
+      <div className="footer__bottom">
+        <p className="footer__copyright">
+          Copyright © {new Date().getFullYear()} T&N Home Improvements. All rights reserved.
+        </p>
+        <div className="footer__social">
+          <a
+            href="https://www.facebook.com/profile.php?id=100077605338760"
+            className="footer__social-link"
+            aria-label="Go to Facebook page"
+          >
+            <FaFacebookF />
           </a>
-          <a href="https://www.instagram.com/tn_homeimprovements/" aria-label="Go to Instagram page">
-            <FaInstagram size="1em" />
+          <a
+            href="https://www.instagram.com/tn_homeimprovements/"
+            className="footer__social-link"
+            aria-label="Go to Instagram page"
+          >
+            <FaInstagram />
           </a>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

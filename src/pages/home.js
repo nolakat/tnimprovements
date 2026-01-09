@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../components/nav'
-import Footer from "../components/footer"
+
 import Hero from '../components/hero'
 import AboutUs from "../components/about"
 import Work from "../components/work"
@@ -8,7 +7,6 @@ import NewGallery from "../components/newgallery"
 import NewQuotes from "../components/newquotes"
 import Map from "../components/Map"
 import CallOut from "../components/callout"
-import PopupForm from "../components/popup"
 
 
 
@@ -19,11 +17,11 @@ const HomePage = () => {
 
   return(
     <div className="scroll-smooth">
-        <NavBar />
+        {/* <NavBar /> */}
         <main className="">
           <div className="m-auto max-w-screen-3xl">
-            <Hero setIsPopupVisible={setIsPopupVisible} />
-            <PopupForm  isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} />
+            {/* <Hero setIsPopupVisible={setIsPopupVisible} /> */}
+            {/* <PopupForm  isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} /> */}
 
             <AboutUs />
             <Work />
@@ -37,7 +35,7 @@ const HomePage = () => {
 
           </div>
         </main>
-        <Footer />
+        {/* <Footer /> */}
     </div>
   )
 }

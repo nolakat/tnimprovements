@@ -1,124 +1,215 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import Logo from '../images/tn_logo.svg'
-import { FaPhone, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaPhone, FaFacebookF, FaInstagram, FaChevronDown } from 'react-icons/fa';
 
+const serviceLinks = [
+  { to: "/commercial-remodel", label: "Commercial Remodeling" },
+  { to: "/drywalling", label: "Basement Refinishing" },
+  { to: "/doors-framing", label: "Doors & Framing" },
+  { to: "/home-renovation", label: "Home Renovation" },
+  { to: "/patios", label: "Patios & Outdoor" },
+];
 
+const NavBar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
-const MainMenu = () =>{
-  return(
-    <ul className="items-center hidden px-5 py-1 rounded-3xl md:flex menuContainer bg-gold-100">
-     <li><div className="flex items-center font-semibold" > <FaPhone size="1.2em" style={{ transform: 'scaleX(-1)' }} /> <span className="pl-2">(412) 508-5078</span></div></li>
-     <li>
-      <div className="flex flex-row text-xl gap-x-4 lg:gap-x-6">
-        <a href="https://www.facebook.com/profile.php?id=100077605338760" className="text-navy" aria-label="go to facebook page"><FaFacebookF size="1em" /></a>
-        <a href="https://www.instagram.com/tn_homeimprovements/" className="text-navy" aria-label="go to instagram page"><FaInstagram size="1em" /></a>
-      </div>
-      </li>
-    </ul>
-  )
-}
-
-
-const MobileMenu = ({ handleClick }) =>{
-  return(
-<ul className="flex flex-col items-center h-full p-10 gap-y-10">
-  <li>
-    <Link to="/services" className="block px-4 py-2 text-lg font-medium text-gray-800 transition-colors duration-150 rounded-lg hover:text-gray-600">
-      Services
-    </Link>
-  </li>
-  <li>
-    <Link to="/steps" className="block px-4 py-2 text-lg font-medium text-gray-800 transition-colors duration-150 rounded-lg hover:text-gray-600">
-      Our Process
-    </Link>
-  </li>
-  <li>
-    <Link to="/who-are-we" className="block px-4 py-2 text-lg font-medium text-gray-800 transition-colors duration-150 rounded-lg hover:text-gray-600">
-      Who Are We
-    </Link>
-  </li>
-  <li>
-    <Link to="/contact" className="block px-4 py-2 text-lg font-medium text-gray-800 transition-colors duration-150 rounded-lg hover:text-gray-600">
-      Contact
-    </Link>
-  </li>
-</ul>
-
-  )
-}
-
-
-const MobileTrigger = ({ handleClick, handleKeyPress, active}) =>{
-
-  return(
-    <div className="wrap md:hidden">
-      <div onClick={handleClick} role="button"  tabIndex="0" onKeyDown={handleKeyPress} className={`burger ${ active ? "active" : "" }`}>
-        <div className="strip burger-strip-2">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-
-const NavBar = () =>{
-
-  const [active, setActive] = useState(false);
-
-  const handleClick =()=> {
-    setActive(!active)
-  }
-
-  const handleKeyPress = (event) => {
-    // Check if the key pressed is 'Enter'
-    if (event.key === 'Enter') {
-      setActive(!active)
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    if (!mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
   };
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
 
-  return(
-    <div className="sticky top-0 z-50 block w-full md:absolute bg-navy">
-    <div className="sticky top-0 left-0 right-0 z-50 md:absolute">
-      <div className="m-auto bg-navy ">
-        <div className="flex justify-between row-auto px-8 py-8 m-auto max-w-screen-2xl">
-          <Link to="/" className="flex flex-row items-end justify-center h-full text-md gap-x-1">
-              <img src={Logo} alt="TN Home Improvements Logo" className="h-10" />
-              <h5 className="leading-none text-white">Home<br/>Improvements</h5>
-            </Link>
-          <MainMenu />
-          <MobileTrigger active={active} handleClick={handleClick} onKeyDown={handleKeyPress} role="button"  tabIndex="0"  />
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      toggleMobileMenu();
+    }
+  };
+
+  return (
+    <nav className="nav">
+      {/* Top Bar */}
+      <div className="nav__wrapper">
+        <div className="nav__container">
+          {/* Logo */}
+          <Link to="/" className="nav__logo">
+            <img src={Logo} alt="TN Home Improvements Logo" />
+
+          </Link>
+
+          {/* Contact Info - Desktop */}
+          <div className="nav__contact">
+            <a href="tel:412-508-5078" className="nav__phone">
+              <FaPhone style={{ transform: 'scaleX(-1)' }} />
+              (412) 508-5078
+            </a>
+            <div className="nav__social">
+              <a
+                href="https://www.facebook.com/profile.php?id=100077605338760"
+                className="nav__social-link"
+                aria-label="Go to Facebook page"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/tn_homeimprovements/"
+                className="nav__social-link"
+                aria-label="Go to Instagram page"
+              >
+                <FaInstagram />
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile Menu Trigger */}
+          <div className="wrap">
+            <div
+              onClick={toggleMobileMenu}
+              role="button"
+              tabIndex="0"
+              onKeyDown={handleKeyPress}
+              className={`burger ${mobileMenuOpen ? "active" : ""}`}
+            >
+              <div className="strip burger-strip-2">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={`w-full h-screen overflow-hidden ${ active ? "block" : "hidden"} `}>
-          <div className={`h-screen w-full relative bg-white transition-all ease-in-out duration-200 ${ active ? "-left-0" : "left-full"}`}>
-            <MobileMenu handleClick={handleClick} onKeyDown={handleKeyPress} role="button" tabIndex="0"  />
+
+        {/* Desktop Menu Bar */}
+        <div className="nav__menu-bar">
+          <div className="nav__menu-container">
+            <ul className="nav__menu">
+              {/* Services Dropdown */}
+              <li className="nav__menu-item">
+                <Link to="/services">
+                  Services
+                  <FaChevronDown />
+                </Link>
+                <div className="nav__dropdown">
+                  <div className="nav__dropdown-content">
+                    {serviceLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className="nav__dropdown-item"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                    <div className="nav__dropdown-footer">
+                      <Link to="/services" className="nav__dropdown-view-all">
+                        View All Services →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="nav__menu-item">
+                <Link to="/steps">Our Process</Link>
+              </li>
+              <li className="nav__menu-item">
+                <Link to="/who-are-we">Who Are We</Link>
+              </li>
+              <li className="nav__menu-item">
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div className="flex-row hidden md:flex mx-14">
-        <div className="flex-1">
 
-         </div>
-        <div className="flex flex-row flex-1 px-5 py-5 uppercase flex-end gap-x-8 bg-navy/75 text-gold">
-        <Link to="/services" className="relative cursor-pointer text-gold-100 underline-animation font-display border-" activeClassName="font-display text-gold-100">Services</Link>
-        {/* <h5 className="relative cursor-pointer text-gold-100 underline-animation">Gallery</h5> */}
-        <Link to="/steps" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Our Process</Link>
-        <Link to="/who-are-we" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Who Are We</Link>
+      {/* Mobile Menu */}
+      <div className={`nav__mobile-menu ${mobileMenuOpen ? 'nav__mobile-menu--open' : ''}`}>
+        <ul className="nav__mobile-list">
+          {/* Services Accordion */}
+          <li className="nav__mobile-item">
+            <div className="nav__mobile-accordion">
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className={servicesOpen ? 'open' : ''}
+              >
+                Services
+                <FaChevronDown />
+              </button>
+              {servicesOpen && (
+                <div className="nav__mobile-submenu">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={closeMobileMenu}
+                      className="nav__mobile-sublink"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <Link
+                    to="/services"
+                    onClick={closeMobileMenu}
+                    className="nav__mobile-sublink nav__mobile-sublink--highlight"
+                  >
+                    View All Services
+                  </Link>
+                </div>
+              )}
+            </div>
+          </li>
+          <li className="nav__mobile-item">
+            <Link to="/steps" onClick={closeMobileMenu} className="nav__mobile-link">
+              Our Process
+            </Link>
+          </li>
+          <li className="nav__mobile-item">
+            <Link to="/who-are-we" onClick={closeMobileMenu} className="nav__mobile-link">
+              Who Are We
+            </Link>
+          </li>
+          <li className="nav__mobile-item">
+            <Link to="/contact" onClick={closeMobileMenu} className="nav__mobile-link">
+              Contact
+            </Link>
+          </li>
+        </ul>
 
-        <Link to="/contact" className="relative cursor-pointer text-gold-100 underline-animation font-display"  activeClassName="font-display text-gold-100">Contact</Link>
+        {/* Mobile Contact */}
+        <div className="nav__mobile-contact">
+          <a href="tel:412-508-5078" className="nav__mobile-phone">
+            <FaPhone style={{ transform: 'scaleX(-1)' }} />
+            (412) 508-5078
+          </a>
+          <div className="nav__mobile-social">
+            <a
+              href="https://www.facebook.com/profile.php?id=100077605338760"
+              className="nav__mobile-social-link"
+              aria-label="Go to Facebook page"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://www.instagram.com/tn_homeimprovements/"
+              className="nav__mobile-social-link"
+              aria-label="Go to Instagram page"
+            >
+              <FaInstagram />
+            </a>
+          </div>
         </div>
       </div>
+    </nav>
+  );
+};
 
-    </div>
-
-</div>
-  )
-}
-
-
-
-export default NavBar
+export default NavBar;

@@ -2,187 +2,195 @@ import React, { useState, useEffect } from 'react';
 import Layout from './layout';
 import { Link } from 'gatsby';
 import PopupForm from '../components/popup';
-
-import { FaArrowCircleRight } from 'react-icons/fa';
-
 import { StaticImage } from "gatsby-plugin-image"
+import { FaArrowRight, FaPhone } from 'react-icons/fa';
 
-import ServiceHero from '../components/servicesHero';
+const services = [
+  {
+    number: "01",
+    title: "Commercial Remodelling",
+    description: "Transform your business space with our expert commercial renovation services. We deliver professional-grade results that enhance functionality and impress clients.",
+    image: "commercial",
+    link: "/commercial-remodel"
+  },
+  {
+    number: "02",
+    title: "Basement Refinishing",
+    description: "Unlock your home's hidden potential. Our basement finishing services create beautiful, functional living spaces that add value to your property.",
+    image: "basement",
+    link: "/drywalling"
+  },
+  {
+    number: "03",
+    title: "Doors & Framing",
+    description: "Precision craftsmanship for every entrance. From interior doors to structural framing, we ensure perfect fits and lasting quality.",
+    image: "doors",
+    link: "/doors-framing"
+  },
+  {
+    number: "04",
+    title: "Property Maintenance",
+    description: "Comprehensive care to protect your investment. Regular maintenance services that keep your property in prime condition year-round.",
+    image: "maintenance",
+    link: null
+  },
+  {
+    number: "05",
+    title: "Home Repairs & Renovation",
+    description: "From minor repairs to complete transformations. Our skilled team handles projects of any scale with attention to detail and craftsmanship.",
+    image: "renovation",
+    link: "/home-renovation"
+  },
+  {
+    number: "06",
+    title: "Patios & Outdoor Living",
+    description: "Extend your living space outdoors. Custom patio designs and installations that create the perfect setting for relaxation and entertainment.",
+    image: "patios",
+    link: "/patios"
+  }
+];
 
+const ServiceCard = ({ number, title, description, image, link }) => {
+  const CardContent = () => (
+    <>
+      <div className="services-page__card-image">
+        {image === "commercial" && (
+          <StaticImage
+            src="../images/doors/commercial_after_01.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        {image === "basement" && (
+          <StaticImage
+            src="../images/doors/drywall_after_04.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        {image === "doors" && (
+          <StaticImage
+            src="../images/working_04.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        {image === "maintenance" && (
+          <StaticImage
+            src="../images/tn_turk_01.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        {image === "renovation" && (
+          <StaticImage
+            src="../images/home_reno_01.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        {image === "patios" && (
+          <StaticImage
+            src="../images/doors/patio_after_01.jpg"
+            alt={title}
+            placeholder="blurred"
+            className="w-full h-full"
+          />
+        )}
+        <div className="services-page__card-overlay" />
+        <span className="services-page__card-number">{number}</span>
+      </div>
+      <div className="services-page__card-body">
+        <h3 className="services-page__card-title">{title}</h3>
+        <p className="services-page__card-description">{description}</p>
+        {link && (
+          <span className="services-page__card-link">
+            View Details
+            <FaArrowRight />
+          </span>
+        )}
+      </div>
+    </>
+  );
 
+  if (link) {
+    return (
+      <Link to={link} className="services-page__card">
+        <CardContent />
+      </Link>
+    );
+  }
+
+  return (
+    <div className="services-page__card">
+      <CardContent />
+    </div>
+  );
+};
 
 const ServicesPage = () => {
-
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-
 
   useEffect(() => {
     if (isPopupVisible) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset'; // Enable scrolling
+      document.body.style.overflow = 'unset';
     }
-  }, [isPopupVisible]); // This effect depends on `isPopupVisible`
-
+  }, [isPopupVisible]);
 
   return (
     <Layout marginTop={true}>
-      <PopupForm  isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} />
-      <ServiceHero />
-      {/* Introduction Section */}
-      <div className="pt-12 pb-4">
-        <h1 className="text-3xl font-bold text-center">Our Services</h1>
-        <p className="mt-4 text-lg text-center">Explore our wide range of home improvement services tailored to bring your dream home to life.</p>
-      </div>
+      <PopupForm isPopupVisible={isPopupVisible} setIsPopupVisible={setIsPopupVisible} />
 
-      {/* Services Categorized - Example Category */}
-      <div className="px-8 m-auto my-10 pb-14 max-w-screen-2xl md:px-16">
-        {/* Detailed Service Listings */}
-        <div className="w-full">
-          {/* Individual Service */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="overflow-hidden border rounded-lg shadow-lg">
-              <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/doors/commercial_after_01.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                            imgClassName=""
-                          />
-              </div>
-              <div className="px-6 pb-6">
-              <h3 className="pt-2 text-xl font-semibold">Commercial Remodelling</h3>
-              <p className="mt-2">Expert solutions for all your home repair needs, ensuring durability and quality with every fix.</p>
-              <div className="mt-6 w-44 ">
-                <Link to="/commercial-remodel" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                  Learn More
-                  <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                </Link>
-              </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden border rounded-lg shadow-lg ">
-            <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/doors/drywall_after_04.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                            imgClassName=""
-                          />
-              </div>
-              <div className="px-6 pb-6">
-                <h3 className="pt-2 text-xl font-semibold">Basement Refinishing</h3>
-                <p className="mt-2">Professional drywall installation and repair services to give your walls a flawless finish.</p>
-                <div className="mt-6 w-44">
-                  <Link to="/drywalling" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                    Learn More
-                    <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden border rounded-lg shadow-lg">
-            <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/working_04.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                            imgClassName="object-center"
-                          />
-              </div>
-              <div className="px-6 pb-6">
-                <h3 className="pt-2 text-xl font-semibold">Doors & Framing</h3>
-                <p className="mt-2">Enhance the entrance to your space with our door and framing services, tailored for beauty and function.</p>
-                <div className="mt-6 w-44">
-                  <Link to="/doors-framing" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                    Learn More
-                    <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden border rounded-lg shadow-lg">
-            <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/tn_turk_01.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                          />
-              </div>
-              <div className="px-6">
-                <h3 className="pt-2 text-xl font-semibold">Property Maintenance</h3>
-                <p className="mt-2">Comprehensive property maintenance services to keep your home in prime condition all year round.</p>
-                <div className="mt-6 w-44">
-                  {/* <Link to="/property-maintenance" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                    Learn More
-                    <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                  </Link> */}
-                </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden border rounded-lg shadow-lg">
-            <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/home_reno_01.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                            imgClassName=""
-                          />
-              </div>
-              <div className="px-6 pb-6">
-                <h3 className="pt-2 text-xl font-semibold">Home Repairs & Renovation</h3>
-                <p className="mt-2">Transform your living space with our custom renovation services, from concept to completion.</p>
-                <div className="mt-6 w-44">
-                  <Link to="/home-renovation" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                    Learn More
-                    <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="overflow-hidden border rounded-lg shadow-lg">
-            <div className="">
-                <StaticImage
-                            loading="eager"
-                            src={"../images/doors/patio_after_01.jpg"}
-                            alt="TN Home Improvements Banner Image"
-                            placeholder="blurred"
-                            className="w-full h-60"
-                            imgClassName=""
-                          />
-              </div>
-              <div className="px-6">
-                <h3 className="pt-2 text-xl font-semibold">Patios</h3>
-                <p className="mt-2">Create the perfect outdoor retreat with our custom patio designs and installation services.</p>
-                <div className="mt-6 w-44">
-                  <Link to="/patios" className="flex items-center pb-1 font-bold border-b-2 border-gold-100 w-fit">
-                    Learn More
-                    <FaArrowCircleRight className="relative ml-2 text-gold-100" />
-                  </Link>
-                </div>
-              </div>
-            </div>
+      <div className="services-page">
+        {/* Hero Section */}
+        <section className="services-page__hero">
+          <div className="services-page__hero-content">
+            <span className="services-page__hero-label">What We Do</span>
+            <h1 className="services-page__hero-title">
+              Quality Craftsmanship
+              <span>For Every Project</span>
+            </h1>
+            <p className="services-page__hero-description">
+              With over 20 years of experience serving Pittsburgh homeowners,
+              we bring expertise, integrity, and attention to detail to every job—big or small.
+            </p>
           </div>
+        </section>
 
-          {/* Repeat for other services */}
-        </div>
+        {/* Main Content */}
+        <section className="services-page__content">
+
+
+          {/* Services Grid */}
+          <div className="services-page__grid">
+            {services.map((service) => (
+              <ServiceCard key={service.number} {...service} />
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="services-page__cta">
+          <div className="services-page__cta-content">
+            <h2 className="services-page__cta-title">Ready to Start Your Project?</h2>
+            <p className="services-page__cta-text">
+              Get a free, no-obligation estimate from our team. We'll discuss your vision,
+              assess your needs, and provide transparent pricing.
+            </p>
+            <a href="#ContactFooter" className="services-page__cta-button">
+              Get Your Free Estimate
+              <FaArrowRight />
+            </a>
+          </div>
+        </section>
       </div>
-
     </Layout>
   );
 };

@@ -5,9 +5,9 @@ import { StaticImage } from "gatsby-plugin-image"
 export const Work = () =>{
   return(
     <section className="m-auto text-sm text-center text-black py-28 border-1 max-w-screen-2xl">
-      <h1 className="pb-12 text-4xl font-semibold ">Over 20 Years of Experience</h1>
+      {/* <h1 className="pb-12 text-4xl font-semibold ">Over 20 Years of Experience</h1> */}
       <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 gap-y-20 gap-x-6 ">
-        <div className="flex flex-col md:flex-col justify-top items-center">
+        <div className="flex flex-col items-center md:flex-col justify-top">
             <StaticImage
             loading="eager"
               src="../images/icon_crafts.jpg"
@@ -22,7 +22,7 @@ export const Work = () =>{
           <p className="max-w-3xl px-5 pb-6 text-lg leading-relaxed">We strive to be your one stop shop for all your home improvement and property maintenance needs. We hold ourselves to a high standard of quality workmanship  no matter how big or small the job is.</p>
           {/* <ButtonYellow target="#" label="See Our Work" /> */}
         </div>
-        <div className="flex flex-col justify-top items-center">
+        <div className="flex flex-col items-center justify-top">
           <StaticImage
               loading="eager"
                 src="../images/icon_integrity.jpg"
@@ -39,7 +39,7 @@ export const Work = () =>{
           </p>
           {/* <ButtonYellow target="#" label="Contact Us" /> */}
         </div>
-        <div className="flex flex-col justify-top items-center">
+        <div className="flex flex-col items-center justify-top">
         <StaticImage
               loading="eager"
                 src="../images/icon_satisfaction.jpg"

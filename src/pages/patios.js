@@ -1,128 +1,192 @@
-import React, { useState } from "react"
-import Layout from './layout'
-import HomeRepairHero from "../components/homeRepairHero";
-import ButtonWhite from "../components/ButtonWhite";
-import { StaticImage } from "gatsby-plugin-image"
-import { Carousel } from 'react-responsive-carousel';
+import React from 'react';
+import Layout from './layout';
+import { Link } from 'gatsby';
+import ReactCompareImage from 'react-compare-image';
+import { StaticImage } from 'gatsby-plugin-image';
+import { FaArrowRight, FaTree, FaUmbrella, FaHammer, FaShieldAlt } from 'react-icons/fa';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-
-
-
-
+const features = [
+  {
+    icon: FaTree,
+    title: "Outdoor Living",
+    description: "Extend your living space into the great outdoors"
+  },
+  {
+    icon: FaUmbrella,
+    title: "Entertainment Ready",
+    description: "Perfect for gatherings and relaxation"
+  },
+  {
+    icon: FaHammer,
+    title: "Custom Built",
+    description: "Designed to fit your space and style"
+  },
+  {
+    icon: FaShieldAlt,
+    title: "Weather Protected",
+    description: "Sealed and treated for durability"
+  }
+];
 
 const Patios = () => {
-  const [currentIndex, setIndex] = useState(0);
-
-
-
   return (
-    <div className="bg-navy">
-
     <Layout marginTop={true}>
-
-
-    <div className="bg-navy">
-          <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
-              <StaticImage
-                loading="eager"
-                src={"../images/patio_cover.jpg"}
-                alt="TN Home Improvements Banner Image"
-                placeholder="blurred"
-                className="!hidden md:!block heroContainer__image "
-                imgClassName="object-middle"
-                width={2400}
-                height={1200}
+      <div className="service-detail">
+        {/* Hero Section */}
+        <section className="service-detail__hero">
+          <div className="service-detail__hero-grid">
+            <div className="service-detail__hero-content">
+              <span className="service-detail__hero-label">Our Services</span>
+              <h1 className="service-detail__hero-title">
+                Patios &
+                <span>Outdoor Living</span>
+              </h1>
+              <p className="service-detail__hero-description">
+                Extend your living space outdoors. Custom patio designs and
+                installations that create the perfect setting for relaxation
+                and entertainment.
+              </p>
+            </div>
+            <div className="service-detail__hero-compare">
+              <ReactCompareImage
+                sliderLineColor="#f4c263"
+                sliderLineWidth={4}
+                aspectRatio="wider"
+                leftImage="/patio_before_01.jpg"
+                rightImage="/patio_after_02.jpg"
               />
-
-            <StaticImage
-              loading="eager"
-              src={"../images/patio_cover.jpg"}
-              alt="TN Home Improvements Banner Image"
-              placeholder="blurred"
-              className=" md:!hidden"
-              imgClassName="object-middle"
-              width={2400}
-              height={1200}
-            />
-
-
-          <div className="!absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">
+              <div className="service-detail__hero-compare-labels">
+                <span>Before</span>
+                <span>After</span>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-center justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-0%  via-navy/50  to-navy to-100% ">
-              <div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0">
-                <h1 className="pb-2 m-auto text-4xl text-center text-white border-b-2 border-gold-100">Patios</h1>
+        {/* Gallery Section */}
+        <section className="service-detail__gallery">
+          <div className="service-detail__gallery-header">
+            <h2 className="service-detail__gallery-title">The Build Process</h2>
+          </div>
+          <div className="service-detail__gallery-grid">
+            {/* Row 1 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/patio_cover.jpg"
+                  alt="Patios - Site Preparation"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">01</span>
+                <h3 className="service-detail__gallery-subtitle">Site Preparation</h3>
+                <p className="service-detail__gallery-text">
+                  Cleared and prepped the backyard area, removing debris and
+                  leveling the ground for a solid foundation. Proper preparation
+                  ensures a lasting, stable deck.
+                </p>
               </div>
             </div>
 
-
-
-          </div>
-      </div>
-
-
-
-<div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0 md:items-start md:hidden">
-                <h1 className="pb-2 m-auto text-4xl text-center text-white border-b-2 border-gold-100">Patios</h1>
+            {/* Row 2 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/doors/patio_after_01.jpg"
+                  alt="Patios - Quality Construction"
+                  placeholder="blurred"
+                />
               </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">02</span>
+                <h3 className="service-detail__gallery-subtitle">Quality Construction</h3>
+                <p className="service-detail__gallery-text">
+                  Built a spacious wooden deck using premium materials for
+                  durability and longevity. Every board is carefully placed
+                  for a beautiful, even surface.
+                </p>
+              </div>
+            </div>
 
+            {/* Row 3 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/patio_after_02.jpg"
+                  alt="Patios - Finishing Touches"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">03</span>
+                <h3 className="service-detail__gallery-subtitle">Sealed & Protected</h3>
+                <p className="service-detail__gallery-text">
+                  Sealed and treated the wood to protect against the elements
+                  and ensure easy maintenance. Your patio will look great for
+                  years to come.
+                </p>
+              </div>
+            </div>
 
-      <div className="flex flex-col px-12 md:flex-row gap-x-6">
-        <div className="flex-1">
-          <Carousel
-          key="1"
-          showThumbs={false}
-          showIndicators={false}
-              selectedItem={currentIndex}
-              showArrows={false}
-              emulateTouch={true}
-              infiniteLoop={true}
-              interval={12000}
-              showStatus={false}
-              preventMovementUntilSwipeScrollTolerance={true}
-              autoPlay>
-                <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
-                    <StaticImage
-                        loading="eager"
-                        src={"../images/help.jpg"}
-                        alt="TN Home Improvements Patios Before Image"
-                        placeholder="blurred"
-                        className=""
-                        imgClassName="object-top"
-
-                      />
-                  </div>
-                  <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
-                    <StaticImage
-                        loading="eager"
-                        src={"../images/patio_after_02.jpg"}
-                        alt="TN Home Improvements Patios After Image"
-                        placeholder="blurred"
-                        className=""
-                        imgClassName="object-top"
-
-                      />
-                  </div>
-          </Carousel>
-        </div>
-        <div className="flex-1 py-16">
-          <div className="px-8 py-16 text-white">
-            <h2 className="pb-6 text-2xl text-gold-100">Patio Building for the Perfect Outdoor Retreat</h2>
-            <p>From a humble beginning to a stunning place to unwind, the construction of this patio was all about creating an inviting outdoor retreat. Here’s a quick overview of the work done:</p>
-            <ul className="flex flex-col pt-3 list-disc gap-y-1">
-                <li>Cleared and prepped the backyard area, removing debris and leveling the ground for a solid foundation.</li>
-                <li>Built a spacious wooden deck, using premium materials for durability and longevity.</li>
-                <li>Sealed and treated the wood to protect against the elements and to ensure easy maintenance.</li>
-                <li>The final touch was the addition of a privacy wall for a cozy, intimate outdoor experience.</li>
-            </ul>
-            <p>This brand-new patio space is now the perfect backdrop for family barbecues, morning coffees, or simply soaking up some sun.</p>
+            {/* Row 4 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/doors/patio_after_03.jpg"
+                  alt="Patios - Completed Outdoor Space"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">04</span>
+                <h3 className="service-detail__gallery-subtitle">Your Outdoor Retreat</h3>
+                <p className="service-detail__gallery-text">
+                  The finished patio is now the perfect backdrop for family
+                  barbecues, morning coffees, or simply soaking up some sun
+                  in your own private retreat.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="service-detail__features">
+          <div className="service-detail__features-header">
+            <h2 className="service-detail__features-title">
+              Why Build a <span>Patio</span>
+            </h2>
+          </div>
+          <div className="service-detail__features-grid">
+            {features.map((feature, index) => (
+              <div key={index} className="service-detail__feature">
+                <div className="service-detail__feature-icon">
+                  <feature.icon />
+                </div>
+                <h3 className="service-detail__feature-title">{feature.title}</h3>
+                <p className="service-detail__feature-text">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="service-detail__cta">
+          <div className="service-detail__cta-content">
+            <h2 className="service-detail__cta-title">Ready for Your Outdoor Retreat?</h2>
+            <p className="service-detail__cta-text">
+              Let's design the perfect patio for your home. Get a free
+              consultation and see how we can transform your backyard.
+            </p>
+            <Link to="/contact" className="service-detail__cta-button">
+              Get Your Free Estimate
+              <FaArrowRight />
+            </Link>
+          </div>
+        </section>
       </div>
     </Layout>
-    </div>
   );
 };
 

@@ -1,0 +1,457 @@
+// Process/Steps Page Styles - Industrial Craftsman Aesthetic
+
+.process-page {
+  --gold: #f4c263;
+  --navy: #1e283b;
+  --dark-navy: #050e1b;
+  --cream: #faf8f5;
+  --charcoal: #2a2a2a;
+
+  // Hero Section
+  &__hero {
+    position: relative;
+    background: var(--dark-navy);
+    padding: 6rem 2rem 8rem;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding: 8rem 4rem 10rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 1px,
+          rgba(244, 194, 99, 0.03) 1px,
+          rgba(244, 194, 99, 0.03) 2px
+        );
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent 60%, var(--gold) 60%, var(--gold) 100%);
+
+      @media (min-width: 768px) {
+        height: 6px;
+        background: linear-gradient(90deg, transparent 75%, var(--gold) 75%, var(--gold) 100%);
+      }
+    }
+  }
+
+  &__hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+
+    &::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+  }
+
+  &__hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 500;
+    color: white;
+    line-height: 1.05;
+    margin: 0 0 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.6s ease 0.1s forwards;
+
+    span {
+      display: block;
+      color: var(--gold);
+    }
+  }
+
+  &__hero-description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 540px;
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0;
+    animation: slideUp 0.6s ease 0.2s forwards;
+  }
+
+  // Main Content
+  &__content {
+    background: var(--cream);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.03), transparent);
+      pointer-events: none;
+    }
+  }
+
+  &__intro {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      padding: 6rem 4rem 4rem;
+    }
+  }
+
+  &__intro-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 0 0 1rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+    }
+  }
+
+  &__intro-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.0625rem;
+    color: #666;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    line-height: 1.7;
+  }
+
+  // Steps Timeline
+  &__timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    position: relative;
+
+    @media (min-width: 768px) {
+      padding: 2rem 4rem 8rem;
+    }
+
+    // Vertical line
+    &::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      bottom: 6rem;
+      left: 2rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(244, 194, 99, 0.2));
+
+      @media (min-width: 768px) {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8rem;
+      }
+    }
+  }
+
+  // Step Item
+  &__step {
+    position: relative;
+    padding-left: 4rem;
+    padding-bottom: 3rem;
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.2 + ($i * 0.1)}s;
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 0;
+      padding-bottom: 4rem;
+      width: 50%;
+
+      &:nth-child(odd) {
+        margin-left: 0;
+        padding-right: 4rem;
+        text-align: right;
+
+        .process-page__step-number {
+          right: -24px;
+          left: auto;
+        }
+
+        .process-page__step-content {
+          align-items: flex-end;
+        }
+      }
+
+      &:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 4rem;
+        text-align: left;
+
+        .process-page__step-number {
+          left: -24px;
+        }
+
+        .process-page__step-content {
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &__step-number {
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    background: var(--gold);
+    color: var(--dark-navy);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(244, 194, 99, 0.3);
+    transition: all 0.3s ease;
+
+    @media (min-width: 768px) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__step:hover &__step-number {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(244, 194, 99, 0.4);
+  }
+
+  &__step-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: white;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    @media (min-width: 768px) {
+      width: 70px;
+      height: 70px;
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__step:hover &__step-icon {
+    background: var(--navy);
+    color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  &__step-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 0 0 0.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__step-description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 320px;
+
+    @media (min-width: 768px) {
+      font-size: 1.0625rem;
+    }
+  }
+
+  // Alternative Grid Layout (for mobile-first)
+  &__steps-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    display: none;
+
+    @media (min-width: 768px) {
+      padding: 2rem 4rem 8rem;
+    }
+  }
+
+  // CTA Section
+  &__cta {
+    background: var(--navy);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding: 6rem 4rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold) 50%, transparent 50%);
+      opacity: 0.1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(-45deg, var(--gold) 0%, var(--gold) 50%, transparent 50%);
+      opacity: 0.08;
+    }
+  }
+
+  &__cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 500;
+    color: white;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+  }
+
+  &__cta-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 2rem;
+    line-height: 1.7;
+  }
+
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--gold);
+    color: var(--dark-navy);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2.25rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(244, 194, 99, 0.3);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Animations
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

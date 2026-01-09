@@ -1,179 +1,193 @@
-import React from "react"
-import Layout from './layout'
-import { StaticImage } from "gatsby-plugin-image"
-import { Carousel } from 'react-responsive-carousel';
+import React from 'react';
+import Layout from './layout';
+import { Link } from 'gatsby';
+import ReactCompareImage from 'react-compare-image';
+import { StaticImage } from 'gatsby-plugin-image';
+import { FaArrowRight, FaTools, FaPaintRoller, FaCouch, FaHome } from 'react-icons/fa';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-
+const features = [
+  {
+    icon: FaTools,
+    title: "Expert Repairs",
+    description: "From minor fixes to major repairs done right"
+  },
+  {
+    icon: FaPaintRoller,
+    title: "Custom Finishes",
+    description: "Paint, trim, and details that transform"
+  },
+  {
+    icon: FaCouch,
+    title: "Living Spaces",
+    description: "Functional designs for how you live"
+  },
+  {
+    icon: FaHome,
+    title: "Whole Home",
+    description: "Interior and exterior renovations"
+  }
+];
 
 const HomeRenovations = () => {
-
-
-    return (
-      <div className="bg-navy">
-
-      <Layout marginTop={true}>
-
-
-      <div className="bg-navy">
-          <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-96">
-              <StaticImage
-                loading="eager"
-                src={"../images/renovation_hero.jpg"}
-                alt="TN Home Improvements Banner Image"
-                placeholder="blurred"
-                className="!hidden md:!block heroContainer__image "
-                imgClassName="object-middle"
-                width={2400}
-                height={1200}
+  return (
+    <Layout marginTop={true}>
+      <div className="service-detail">
+        {/* Hero Section */}
+        <section className="service-detail__hero">
+          <div className="service-detail__hero-grid">
+            <div className="service-detail__hero-content">
+              <span className="service-detail__hero-label">Our Services</span>
+              <h1 className="service-detail__hero-title">
+                Home Repairs &
+                <span>Renovation</span>
+              </h1>
+              <p className="service-detail__hero-description">
+                From minor repairs to complete transformations. Our skilled team
+                handles projects of any scale with attention to detail and
+                craftsmanship you can trust.
+              </p>
+            </div>
+            <div className="service-detail__hero-compare">
+              <ReactCompareImage
+                sliderLineColor="#f4c263"
+                sliderLineWidth={4}
+                aspectRatio="wider"
+                leftImage="/home_reno_before.jpg"
+                rightImage="/home_reno_after_01.jpg"
               />
-
-            <StaticImage
-              loading="eager"
-              src={"../images/renovation_hero.jpg"}
-              alt="TN Home Improvements Banner Image"
-              placeholder="blurred"
-              className=" md:!hidden"
-              imgClassName="object-middle"
-              width={2400}
-              height={1200}
-            />
-
-
-          <div className="!absolute top-0 z-20 p-5 scale-75 rounded-full md:top-auto md:scale-1 ">
+              <div className="service-detail__hero-compare-labels">
+                <span>Before</span>
+                <span>After</span>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-center justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-0%  via-navy/50  to-navy to-100% ">
-              <div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0">
-                <h1 className="pb-2 m-auto text-4xl text-center text-white border-b-2 border-gold-100">Home Repairs & Renovations</h1>
+        {/* Gallery Section */}
+        <section className="service-detail__gallery">
+          <div className="service-detail__gallery-header">
+            <h2 className="service-detail__gallery-title">Featured Projects</h2>
+          </div>
+          <div className="service-detail__gallery-grid">
+            {/* Row 1 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/home_reno_01.jpg"
+                  alt="Home Renovation - Custom Built-Ins"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">01</span>
+                <h3 className="service-detail__gallery-subtitle">Custom Built-Ins</h3>
+                <p className="service-detail__gallery-text">
+                  Designed and installed custom floating shelves and sleek white
+                  cabinets around the fireplace, combining functionality with
+                  aesthetic appeal to create a stunning focal point.
+                </p>
               </div>
             </div>
 
+            {/* Row 2 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/home_reno_after_01.jpg"
+                  alt="Home Renovation - Living Space Transformation"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">02</span>
+                <h3 className="service-detail__gallery-subtitle">Living Space Transformation</h3>
+                <p className="service-detail__gallery-text">
+                  Natural wood finishes contrast beautifully with painted surfaces,
+                  creating a cohesive look that enhances your home's character
+                  while maximizing storage and display space.
+                </p>
+              </div>
+            </div>
 
+            {/* Row 3 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/home_renovation/home_reno_before_02.jpg"
+                  alt="Home Renovation - Patio Ceiling Before"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">03</span>
+                <h3 className="service-detail__gallery-subtitle">Outdoor Renovations</h3>
+                <p className="service-detail__gallery-text">
+                  We don't just work indoors. From covered patio ceilings to
+                  exterior repairs, we transform outdoor spaces with the same
+                  attention to detail as interior projects.
+                </p>
+              </div>
+            </div>
 
+            {/* Row 4 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/home_renovation/home_reno_after_02.jpg"
+                  alt="Home Renovation - Patio Ceiling After"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">04</span>
+                <h3 className="service-detail__gallery-subtitle">Polished Results</h3>
+                <p className="service-detail__gallery-text">
+                  New beadboard paneling, recessed lighting, and quality finishes
+                  create bright, welcoming spaces perfect for relaxation or
+                  hosting gatherings with family and friends.
+                </p>
+              </div>
+            </div>
           </div>
-      </div>
+        </section>
 
-
-
-
-    <div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0 md:items-start md:hidden">
-                  <h1 className="pb-2 m-auto text-4xl text-center text-white border-b-2 border-gold-100">Home Repairs & Renovations</h1>
+        {/* Features Section */}
+        <section className="service-detail__features">
+          <div className="service-detail__features-header">
+            <h2 className="service-detail__features-title">
+              Complete <span>Home Services</span>
+            </h2>
+          </div>
+          <div className="service-detail__features-grid">
+            {features.map((feature, index) => (
+              <div key={index} className="service-detail__feature">
+                <div className="service-detail__feature-icon">
+                  <feature.icon />
                 </div>
-
-
-        <div className="flex flex-col px-12 md:flex-row gap-x-6">
-          <div className="flex-1">
-            <Carousel
-            key="1"
-            showThumbs={false}
-            showIndicators={false}
-                showArrows={false}
-                emulateTouch={true}
-                infiniteLoop={true}
-                interval={12000}
-                showStatus={false}
-                preventMovementUntilSwipeScrollTolerance={true}
-                autoPlay>
-                  <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right ">
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/home_reno_before.jpg"}
-                          alt="TN Home Improvements Banner Image"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-top rotate-90"
-                          width={2400}
-                          height={1200}
-                        />
-                    </div>
-                    <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/home_reno_after_01.jpg"}
-                          alt="TN Home Improvements Banner Image"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-top"
-                          width={2400}
-                          height={1200}
-                        />
-                    </div>
-            </Carousel>
+                <h3 className="service-detail__feature-title">{feature.title}</h3>
+                <p className="service-detail__feature-text">{feature.description}</p>
+              </div>
+            ))}
           </div>
-          <div className="flex-1 py-16">
-            <div className="px-8 py-16 text-white">
-              <h2 className="pb-6 text-2xl text-gold-100">Custom Home Renovation Services</h2>
-              <p>This project focused on enhancing the charm and utility of the living space centered around the fireplace. With careful consideration to detail and design, here's what we accomplished:</p>
-              <ul className="flex flex-col pt-3 list-disc gap-y-1">
-                  <li>Designed and installed custom floating shelves on either side of the fireplace.</li>
-                  <li>Constructed and fitted sleek white cabinets for storage beneath the shelves.</li>
-                  <li>Ensured the shelves and cabinets matched in style to create a cohesive look.</li>
-                  <li>Chose a natural wood finish for the shelves to contrast with the brick fireplace.</li>
-                  <li>Optimized the use of space to combine functionality with aesthetic appeal, making the fireplace a focal point.</li>
-              </ul>
-            </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="service-detail__cta">
+          <div className="service-detail__cta-content">
+            <h2 className="service-detail__cta-title">Ready to Transform Your Home?</h2>
+            <p className="service-detail__cta-text">
+              Whether it's a repair or a complete renovation, we're here to help.
+              Get a free consultation and detailed estimate for your project.
+            </p>
+            <Link to="/contact" className="service-detail__cta-button">
+              Get Your Free Estimate
+              <FaArrowRight />
+            </Link>
           </div>
-        </div>
-
-        <div className="flex flex-col-reverse px-12 bg-white md:flex-row-reverse gap-x-12">
-          <div className="flex-1">
-            <Carousel
-            key="2"
-                showArrows={false}
-                showThumbs={false}
-                emulateTouch={true}
-                infiniteLoop={true}
-                interval={12000}
-                showStatus={false}
-                preventMovementUntilSwipeScrollTolerance={true}
-                autoPlay>
-                  <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/home_renovation/home_reno_before_02.jpg"}
-                          alt="TN Home Improvements Banner Image"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-middle"
-
-                        />
-                    </div>
-                    <div className="flex flex-col items-center justify-center py-16 odd:float-left even:float-right">
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/home_renovation/home_reno_after_02.jpg"}
-                          alt="TN Home Improvements Banner Image"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-top"
-
-                        />
-                    </div>
-            </Carousel>
-          </div>
-          <div className="flex-1 h-full py-16">
-            <div className="h-full px-8 py-16 bg-white text-navy">
-            <h2 className="pb-6 text-2xl text-navy">Reliable Home Repair</h2>
-            <p>Transforming outdoor spaces is always a rewarding challenge, and the renovation of this covered patio ceiling was no exception. Here’s the rundown of what we did to create a fresh, inviting outdoor area:</p>
-            <ul className="flex flex-col pt-3 list-disc gap-y-1">
-                <li>Stripped down the old ceiling to the bare bones to ensure a clean slate.</li>
-                <li>Installed a new, smooth ceiling with crisp white beadboard paneling for a classic, polished look.</li>
-                <li>Incorporated recessed lighting fixtures to provide ample, unobtrusive lighting.</li>
-                <li>Painted and finished all surfaces to withstand the elements and ensure long-lasting beauty.</li>
-            </ul>
-            <p>The result is a bright and welcoming space perfect for evening relaxation or hosting gatherings.</p>
-            </div>
-          </div>
-        </div>
-
-
-
-
-      </Layout>
+        </section>
       </div>
-    );
+    </Layout>
+  );
 };
 
 export default HomeRenovations;

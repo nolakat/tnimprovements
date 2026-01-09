@@ -1,121 +1,192 @@
 import React from 'react';
-// Layout component for page structure
 import Layout from './layout';
-// Component for before/after image comparison
+import { Link } from 'gatsby';
 import ReactCompareImage from 'react-compare-image';
-// Gatsby's image processing component for optimized images
 import { StaticImage } from 'gatsby-plugin-image';
-// Carousel component for sliding images
-import { Carousel } from 'react-responsive-carousel';
-// Carousel styles
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { FaArrowRight, FaBuilding, FaClock, FaHandshake, FaCheckCircle } from 'react-icons/fa';
 
+const features = [
+  {
+    icon: FaBuilding,
+    title: "Custom Design",
+    description: "Tailored solutions for your unique space"
+  },
+  {
+    icon: FaClock,
+    title: "Minimal Downtime",
+    description: "Efficient work to keep your business running"
+  },
+  {
+    icon: FaHandshake,
+    title: "Full Coordination",
+    description: "We handle permits and inspections"
+  },
+  {
+    icon: FaCheckCircle,
+    title: "Quality Finish",
+    description: "Professional results that impress clients"
+  }
+];
 
-// Main component for the CommercialRemodel page
 const CommercialRemodel = () => {
-
   return (
-    <div className="bg-navy">
-      <Layout marginTop={true}>
-        {/* Hero section with responsive images */}
-        <div className="relative m-auto max-w-screen-2xl md:h-96">
-          <StaticImage
-            loading="eager"
-            src="../images/commercial_reno_cover.jpg"
-            alt="TN Home Improvements Banner Image"
-            placeholder="blurred"
-            className="heroContainer__image"
-            imgClassName="object-bottom"
-            width={2400}
-            height={1200}
-          />
-          {/* Placeholder for potentially interactive elements */}
-          <div className="absolute top-0 z-20 p-5 scale-75 rounded-full md:scale-1"></div>
-          {/* Page title section */}
-          <div className="!absolute top-0 left-0 z-10 hidden w-full h-full px-8 text-white bg-gradient-to-t from-navy via-navy/50 to-navy md:flex md:bg-gradient-to-r md:justify-center md:items-center">
-            <h1 className="relative pt-20 pr-5 m-auto text-4xl text-center text-white border-b-2 border-gold-100 md:pr-0">
-              Commercial Remodeling
-            </h1>
-          </div>
-        </div>
-
-        {/* Content section with text and images */}
-        <div className="flex flex-col px-12 md:flex-row gap-x-6 pt-14 pb-14">
-          <div className="flex-1">
-            {/* Example image - consider making dynamic */}
-            <ReactCompareImage
-              sliderLineColor="#f4c263"
-              aspectRatio="wider"
-              leftImage="commercial_before.jpg"
-              rightImage="commercial_after_01.jpg"
-            />
-          </div>
-          <div className="flex-1 py-16">
-            {/* Text content */}
-            <div className="text-white ">
-              <h2 className="pb-6 text-2xl text-gold-100">Bringing Your Commercial Vision to Life</h2>
-              <p>
-                The remodel of this commercial space has swapped its once plain green interior for a vibrant, stylish look. A lively floral accent wall and a fresh pink door inject energy and personality. The existing wood flooring ties the new design together, creating a modern and welcoming environment for clients.
+    <Layout marginTop={true}>
+      <div className="service-detail">
+        {/* Hero Section */}
+        <section className="service-detail__hero">
+          <div className="service-detail__hero-grid">
+            <div className="service-detail__hero-content">
+              <span className="service-detail__hero-label">Our Services</span>
+              <h1 className="service-detail__hero-title">
+                Commercial
+                <span>Remodeling</span>
+              </h1>
+              <p className="service-detail__hero-description">
+                Transform your business space with expert commercial renovation
+                services. We deliver professional-grade results that enhance
+                functionality and impress clients.
               </p>
             </div>
+            <div className="service-detail__hero-compare">
+              <ReactCompareImage
+                sliderLineColor="#f4c263"
+                sliderLineWidth={4}
+                aspectRatio="wider"
+                leftImage="/commercial_before.jpg"
+                rightImage="/commercial_after_01.jpg"
+              />
+              <div className="service-detail__hero-compare-labels">
+                <span>Before</span>
+                <span>After</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div className="flex flex-row items-center justify-center px-12 gap-x-6">
-          <div className="w-3/4 ">
-            <Carousel
-            key="1"
-            showThumbs={false}
-            showIndicators={false}
-                showArrows={false}
-                emulateTouch={true}
-                infiniteLoop={true}
-                interval={2000}
-                showStatus={false}
-                preventMovementUntilSwipeScrollTolerance={true}
-                autoPlay>
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/juicy_studio/juicy_01.jpg"}
-                          alt="TN Home Improvements Before Commercial Remodeling"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-top"
-
-                        />
-                      <StaticImage
-                          loading="eager"
-                          src={"../images/juicy_studio/juicy_02.jpg"}
-                          alt="TN Home Improvements After Commercial Remodeling"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-cover"
-
-                        />
-                        <StaticImage
-                          loading="eager"
-                          src={"../images/juicy_studio/juicy_03.jpg"}
-                          alt="TN Home Improvements After Commercial Remodeling"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-cover"
-                        />
-                        <StaticImage
-                          loading="eager"
-                          src={"../images/juicy_studio/juicy_04.jpg"}
-                          alt="TN Home Improvements After Commercial Image"
-                          placeholder="blurred"
-                          className=""
-                          imgClassName="object-cover"
-
-                        />
-
-            </Carousel>
+        {/* Gallery Section */}
+        <section className="service-detail__gallery">
+          <div className="service-detail__gallery-header">
+            <h2 className="service-detail__gallery-title">Project Gallery</h2>
           </div>
-        </div>
+          <div className="service-detail__gallery-grid">
+            {/* Row 1 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/juicy_studio/juicy_01.jpg"
+                  alt="Commercial Remodel - Vibrant New Interior"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">01</span>
+                <h3 className="service-detail__gallery-subtitle">A Fresh New Look</h3>
+                <p className="service-detail__gallery-text">
+                  The transformation began with a complete reimagining of the space.
+                  Bold colors and modern finishes replaced the dated interior, creating
+                  an inviting atmosphere that reflects the business's vibrant personality.
+                </p>
+              </div>
+            </div>
 
-      </Layout>
-    </div>
+            {/* Row 2 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/juicy_studio/juicy_02.jpg"
+                  alt="Commercial Remodel - Accent Wall Detail"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">02</span>
+                <h3 className="service-detail__gallery-subtitle">Statement Accent Wall</h3>
+                <p className="service-detail__gallery-text">
+                  A lively floral accent wall serves as the focal point, injecting
+                  energy and personality into the space. This eye-catching feature
+                  creates the perfect backdrop for client interactions.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 3 - Image Left */}
+            <div className="service-detail__gallery-row">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/juicy_studio/juicy_03.jpg"
+                  alt="Commercial Remodel - Modern Fixtures"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">03</span>
+                <h3 className="service-detail__gallery-subtitle">Thoughtful Details</h3>
+                <p className="service-detail__gallery-text">
+                  Every element was carefully considered, from the fresh pink door
+                  that adds a pop of color to the preserved wood flooring that ties
+                  the design together seamlessly.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 4 - Image Right */}
+            <div className="service-detail__gallery-row service-detail__gallery-row--reverse">
+              <div className="service-detail__gallery-image">
+                <StaticImage
+                  src="../images/juicy_studio/juicy_04.jpg"
+                  alt="Commercial Remodel - Final Result"
+                  placeholder="blurred"
+                />
+              </div>
+              <div className="service-detail__gallery-content">
+                <span className="service-detail__gallery-number">04</span>
+                <h3 className="service-detail__gallery-subtitle">The Final Result</h3>
+                <p className="service-detail__gallery-text">
+                  The completed space now welcomes clients with a modern, stylish
+                  environment that perfectly represents the brand. A true transformation
+                  from plain to extraordinary.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="service-detail__features">
+          <div className="service-detail__features-header">
+            <h2 className="service-detail__features-title">
+              Why Choose <span>T&N</span>
+            </h2>
+          </div>
+          <div className="service-detail__features-grid">
+            {features.map((feature, index) => (
+              <div key={index} className="service-detail__feature">
+                <div className="service-detail__feature-icon">
+                  <feature.icon />
+                </div>
+                <h3 className="service-detail__feature-title">{feature.title}</h3>
+                <p className="service-detail__feature-text">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="service-detail__cta">
+          <div className="service-detail__cta-content">
+            <h2 className="service-detail__cta-title">Ready to Transform Your Space?</h2>
+            <p className="service-detail__cta-text">
+              Let's discuss your commercial remodeling project. Get a free
+              consultation and detailed estimate from our expert team.
+            </p>
+            <Link to="/contact" className="service-detail__cta-button">
+              Get Your Free Estimate
+              <FaArrowRight />
+            </Link>
+          </div>
+        </section>
+      </div>
+    </Layout>
   );
 };
 
