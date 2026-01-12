@@ -1,33 +1,141 @@
 import * as React from "react"
-import ButtonYellow from './ButtonYellow'
+import { useState, useEffect } from "react"
+import Badge from './badge'
 import { StaticImage } from "gatsby-plugin-image"
 
+const Hero = ({ setIsPopupVisible }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-const Hero = () =>{
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 2 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 2 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? 2 : prevIndex - 1
+    );
+  };
+
   return(
-    <div className="heroContainer">
-        <StaticImage
-        loading="eager"
-      src="../images/tn_company01.jpg"
-      alt="TN Home Improvements Banner Image"
-      placeholder="blurred"
-      className="object-right heroContainer__image"
-      imgClassName="object-bottom"
-      width={2400}
-      height={1200}
-    />
-      <div className="absolute left-0 z-10 flex flex-col items-start justify-center w-full h-full text-white from-slate-900/95 to-slate-800/30 md:to-zinc-50/5 bg-gradient-to-t md:bg-gradient-to-r">
-        <div className="flex flex-col items-center pl-8 pr-5 md:pr-0 md:pl-14 md:items-start">
-          <h1 className="flex flex-wrap justify-center pb-6 text-6xl font-bold text-center md:text-7xl md:justify-start lg:text-8xl font-display md:text-left"><span class="block w-full pb-5">Big or Small</span> We Do It All</h1>
-          <hr className="w-12 mb-4 border-b-2 border-white border-solid md:hidden" />
-          <ul className="flex flex-col items-center justify-center text-lg text-center border-white border-solid md:items-end md:flex-row gap-y-4 sm:text-xl lg:pt-6 lg:border-t font-body mb-14 md:text-left-0">
+    <div className="bg-navy">
+      <div className="relative flex items-center justify-start m-auto max-w-screen-2xl md:h-650">
 
-           <li>Locally Owned & Operated
-            <span className="hidden px-2 text-3xl font-thin md:inline-block opacity-60">|</span></li>
-            <li>Affordable Pricing <span className="hidden px-2 text-3xl font-thin opacity-60 md:inline-block">|</span></li>
-            <li>Licensed & Fully Insuranced</li> </ul>
-          <ButtonYellow target="#contact" label="Get Your Free Estimate"/>
+
+        {/* Slider indicators */}
+        <div className="absolute z-20 flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
+          {[0, 1, 2].map((index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full ${
+                currentImageIndex === index ? 'bg-white' : 'bg-white/50'
+              }`}
+              onClick={() => setCurrentImageIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
+
+        {/* Static Images */}
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 0 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <StaticImage
+            loading="eager"
+            src="../images/tn_company01.jpg"
+            alt="TN Home Improvements Banner Image 1"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 1 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <StaticImage
+            loading="lazy"
+            src="../images/home_reno_after_01.jpg"
+            alt="TN Home Improvements Banner Image 2"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
+        <div className={`absolute inset-0 transition-opacity duration-500 ${
+          currentImageIndex === 2 ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <StaticImage
+            loading="lazy"
+            src="../images/patio_after_02.jpg"
+            alt="TN Home Improvements Banner Image 3"
+            placeholder="blurred"
+            className="!hidden md:!block heroContainer__image"
+            imgClassName="object-bottom"
+            width={4800}
+            height={2400}
+          />
+        </div>
+
+        <StaticImage
+          loading="eager"
+          src="../images/tn_company01.jpg"
+          alt="TN Home Improvements Banner Image"
+          placeholder="blurred"
+          className="md:!hidden"
+          imgClassName="object-bottom"
+          width={2400}
+          height={1200}
+        />
+
+        <div className="hidden absolute px-8 left-0 z-10 md:flex flex-col items-start justify-center w-full h-full text-white bg-gradient-to-t md:bg-gradient-to-r from-navy from-20% via-transparent via-80% to-navy to-100% ">
+          <div className="relative flex flex-col items-center pt-20 pr-5 md:pr-0 md:items-start">
+
+            <h1 className="relative flex flex-wrap justify-center pt-5 text-sm font-bold text-center text-gold-100 md:justify-start lg:text-5xl font-display md:text-left">
+            <div
+                className="absolute z-20 p-5 scale-75 rounded-full md:scale-1 bg-darkNavy/65"
+                style={{ top: '-71px', right: '-178px' }}
+              >
+                  <Badge />
+                 </div>
+
+              {/* <span className="block w-full pb-1">Local Remodelling<br/> You Can Trust</span> */}
+              <span className="mb-6 text-4xl leading-snug">Building Pittsburgh Dreams,<br/> One Home At A Time.</span>
+            </h1>
+
+            <ul className="flex flex-col items-center justify-center text-xl text-center text-white md:items-end md:flex-row gap-y-4 sm:text-xl font-body mb-14 md:text-left-0">
+
+            <li>Locally Owned & Operated
+              <span className="hidden px-2 text-3xl font-thin md:inline-block opacity-60">|</span></li>
+              <li>Affordable Pricing <span className="hidden px-2 text-3xl font-thin opacity-60 md:inline-block">|</span></li>
+              <li>Licensed & Fully Insuranced</li> </ul>
+              <div className="relative left-4">
+              <a href="#ContactFooter" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
+
+                {/* <ButtonHero setIsPopupVisible={setIsPopupVisible}  label="GET YOUR FREE ESTIMATE" /> */}
+              </div>
+          </div>
+        </div>
+      </div>
+      <div className="m-auto text-center md:hidden text-gold-100 py-9 w-fit">
+        <span className="block mb-12 text-3xl leading-snug">Building Pittsburgh Dreams,<br/> One Home At A Time.</span>
+        <a href="#ContactFooter" className="block px-8 py-4 text-lg font-semibold border border-white border-solid text--uppercase text-gold-100 rounded-4xl button-yellow bg-navy border-1 font-body hover:bg-slate-600/50">Get Your Free Estimate</a>
+
+
       </div>
     </div>
   )

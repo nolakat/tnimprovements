@@ -1,0 +1,467 @@
+// Services Page Styles - Industrial Craftsman Aesthetic
+
+.services-page {
+  --gold: #f4c263;
+  --navy: #1e283b;
+  --dark-navy: #050e1b;
+  --cream: #faf8f5;
+  --charcoal: #2a2a2a;
+
+  // Hero Section
+  &__hero {
+    position: relative;
+    background: var(--dark-navy);
+    padding: 6rem 2rem 8rem;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding: 8rem 4rem 10rem;
+    }
+
+    // Diagonal texture overlay
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 1px,
+          rgba(244, 194, 99, 0.03) 1px,
+          rgba(244, 194, 99, 0.03) 2px
+        );
+      pointer-events: none;
+    }
+
+    // Gold accent bar
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 30%, transparent 30%);
+
+      @media (min-width: 768px) {
+        height: 6px;
+        background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 20%, transparent 20%);
+      }
+    }
+  }
+
+  &__hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--gold);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.6s ease forwards;
+
+    &::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+    }
+  }
+
+  &__hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 500;
+    color: white;
+    line-height: 1.05;
+    margin: 0 0 1.5rem;
+    opacity: 0;
+    animation: slideUp 0.6s ease 0.1s forwards;
+
+    span {
+      display: block;
+      color: var(--gold);
+    }
+  }
+
+  &__hero-description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 540px;
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0;
+    animation: slideUp 0.6s ease 0.2s forwards;
+  }
+
+  // Main Content Area
+  &__content {
+    background: var(--cream);
+    position: relative;
+
+    // Subtle top shadow
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.03), transparent);
+      pointer-events: none;
+    }
+  }
+
+  &__intro {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      padding: 6rem 4rem 4rem;
+    }
+  }
+
+  &__intro-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 0 0 1rem;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+    }
+  }
+
+  &__intro-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.0625rem;
+    color: #666;
+    max-width: 600px;
+    margin: 2rem auto 0;
+    line-height: 1.7;
+  }
+
+  // Services Grid
+  &__grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    display: grid;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+      padding: 2rem 4rem 8rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // Service Card
+  &__card {
+    position: relative;
+    background: white;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.4s ease;
+    opacity: 0;
+    animation: cardReveal 0.6s ease forwards;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.1 + ($i * 0.08)}s;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+
+      .services-page__card-image img {
+        transform: scale(1.08);
+      }
+
+      .services-page__card-overlay {
+        opacity: 1;
+      }
+
+      .services-page__card-number {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      .services-page__card-link {
+        color: var(--gold);
+
+        &::after {
+          width: 100%;
+        }
+
+        svg {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    // Gold accent line on left
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+      z-index: 2;
+    }
+
+    &:hover::before {
+      height: 100%;
+    }
+  }
+
+  &__card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      height: 240px;
+    }
+
+    img, .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gatsby-image-wrapper {
+      height: 100% !important;
+    }
+  }
+
+  &__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(5, 14, 27, 0.7) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &__card-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    background: var(--gold);
+    padding: 0.35rem 0.75rem;
+    transform: translateX(10px);
+    opacity: 0;
+    transition: all 0.3s ease 0.1s;
+  }
+
+  &__card-body {
+    padding: 1.75rem 1.5rem 2rem;
+
+    @media (min-width: 768px) {
+      padding: 2rem 1.75rem 2.25rem;
+    }
+  }
+
+  &__card-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__card-description {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.9375rem;
+    color: #666;
+    line-height: 1.65;
+    margin: 0 0 1.5rem;
+  }
+
+  &__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // CTA Section
+  &__cta {
+    background: var(--navy);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding: 6rem 4rem;
+    }
+
+    // Decorative corner
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold) 50%, transparent 50%);
+      opacity: 0.1;
+    }
+  }
+
+  &__cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 500;
+    color: white;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+  }
+
+  &__cta-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 2rem;
+    line-height: 1.7;
+  }
+
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--gold);
+    color: var(--dark-navy);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 2.25rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(244, 194, 99, 0.3);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Animations
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

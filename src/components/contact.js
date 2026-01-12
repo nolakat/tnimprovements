@@ -8,7 +8,6 @@ export const contact = () =>{
   return (
     <section id="contact" className="px-5 py-32 ">
       <div className="m-auto text-center">
-        <h3 className="pb-4 text-4xl">Contact Us</h3>
         <div className="flex flex-col items-center justify-center pt-6 text-center gap-y-3">
           <a className="text-2xl font-semibold md:text-4xl hover:underline" href="emailto:jeff@tnimprovements.com" >jeff@tnimprovements.com</a>
           <div className="flex flex-row pt-2">
@@ -18,7 +17,7 @@ export const contact = () =>{
 
         <form className="flex flex-col max-w-3xl m-auto mt-12 gap-y-4" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
-          <div class="flex flex-col md:flex-row gap-x-8 gap-y-4">
+          <div className="flex flex-col md:flex-row gap-x-8 gap-y-4">
             <div className="flex flex-row flex-1 w-full gap-x-8">
               <div className="flex flex-col items-start flex-1">
                 <label className="text-lg" for="name">Name</label>
@@ -35,7 +34,7 @@ export const contact = () =>{
             <textarea className="w-full border-2" type="textarea" name="message" required />
           </div>
 
-          <button type="submit" className="block px-8 py-4 text-lg font-semibold text-white bg-black border border-black border-solid button-black border-1 font-body">Submit</button>
+          <button type="submit" className="block px-6 py-2 m-auto text-lg font-semibold min-w-44 w-fit bg-gold-100 text-darkNavy rounded-4xl font-body">Submit</button>
 
 
         </form>
